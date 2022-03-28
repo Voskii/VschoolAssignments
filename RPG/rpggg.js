@@ -1,4 +1,4 @@
-// HEY! LETS GO BROTHER!! //
+
 const readline = require("readline-sync");
     console.log("You just woke up on a cliff edge overlooking a vast valley full of canyons, waterfalls, lakes, forest, and loud beast howls. You see this floating head with a really great hair line. Like, it's just so great and thick and long. No reason for anyone to pick fun at this amazing hair line");
 const userName = readline.question("'What ya mum scream at you to get your attention?' the floating head questioned: ");
@@ -6,7 +6,6 @@ const userName = readline.question("'What ya mum scream at you to get your atten
     readline.keyInPause();
     console.log("Heavy Breathing");
     readline.keyInPause();
-// let player = [{ name: userName, health: health} ]
 let health = Number(350);
 const beatIt = "Let's beat it already, you need a shower 'Push w'";
     console.log(beatIt);
@@ -14,8 +13,7 @@ let whatsBag = [];
 let enemies = [{ name: 'CAPTAIN CASSIE', health: 150, item: 'the HIDDEN YouTube dislike button', min: 25, max: 35  } , { name: "JACOB 'THE PEACEKEEPER'", health: 150, item: 'order 66', min: 38, max: 42  } , { name: 'Ty Rex', health: 150, item: 'Unbreakable Will', min: 25, max: 35  } , { name: 'CAPTAIN CASSIE FADE', health: 280, item: "Snow White's Apple", min: 30, max: 50 } , { name: "JACOB 'THE PEACEKEEPER' FADE", health: 280, item: "Thanos' Gauntlet Snap", min: 50, max: 65 } , { name: 'Ty Rex FADE', health: 300, item: 'Breakable Will', min: 35, max: 50 }];
 
 while (health > 0){
-    const whatsApp = readline.question(" Push 'w' to walk, Push 'i' for inventory, Push 'p' for stats: ")
-    // console.log(hasUw);
+    const whatsApp = readline.question(" Push 'w' to walk, Push 'i' for inventory, Push 'p' for stats: ");
         if(whatsApp === "w"){
             console.log("wow, some of us don't have legs a%&hole...we couldn't maybe just float? But okay, let's 'move' or whatever")
             walk();
@@ -80,33 +78,32 @@ while (health > 0){
             if(health < 0 && whatsBag.indexOf(unbW) !== -1){
                 console.log("Ty Rex' Unbreakable Will doesn't run out of steam, +80HP");
                 readline.keyInPause();
-                console.log(bossName + " acknolwedges Ty Rex' aura and exits the fight!")
+                console.log(bossName + " acknolwedges Ty Rex' aura and exits the fight!");
                 health += 80;
                 return;
             } if(health < 0){
-                console.log("YOU DIED! Now go and complain to the Dev's on twitter about nerfs xD")
-                console.log("Lumpy Toast - 'BAAAAAAAAAAAAABE BAAAAAAABE, SMOOTH TOAST I GOT US DUNNUH!!! AND IT'S GOT ALL OUR STUFF THOSE ANGRY BOSSES STOLE FROM US!'")
+                console.log("YOU DIED! Now go and complain to the Dev's on twitter about nerfs xD");
+                console.log("Lumpy Toast - 'BAAAAAAAAAAAAABE BAAAAAAABE, SMOOTH TOAST I GOT US DUNNUH!!! AND IT'S GOT ALL OUR STUFF THOSE ANGRY BOSSES STOLE FROM US!'");
             return;
             }
         }
     }
     
-    
     function tryRunning(enemy){
     let chance = Math.random();
     console.log(`enemy ${enemy.name} has appeared`);
-    const maybeRun = readline.question(" Push 'r' to run away, Push 'f' GIVE'EM HELL: ")
+    const maybeRun = readline.question(" Push 'r' to run away, Push 'f' GIVE'EM HELL: ");
         if (maybeRun === "r") {
             if(chance > 0.5){
                 health -= Math.ceil(Math.random() * (enemy.max - enemy.min) + enemy.min);
-                console.log(enemy.name + ' swiped you. Your HP is now ' + health)
+                console.log(enemy.name + ' swiped you. Your HP is now ' + health);
                 console.log("Lumpy toast teleported you both to safety and made you sign a written agreement for promised labor in the near future 'Ya Schmuck'");
                 readline.keyInPause();
                 return
             }else if(chance < 0.5){
-                console.log(enemy.name + " ATTACKS!")
+                console.log(enemy.name + " ATTACKS!");
                 health -= Math.ceil(Math.random() * (enemy.max - enemy.min) + enemy.min);
-                console.log("Your hp is now " + health)
+                console.log("Your hp is now " + health);
                 readline.keyInPause();
                 return bossFight(enemy);
             }
@@ -119,12 +116,13 @@ while (health > 0){
     function checkBag(){
         console.log(whatsBag);
         if(readline.keyInYN('Do you want to use a special totally non harmful item?')){
-            console.log("push 'p' to exit inventory")
+            console.log("push 'p' to exit inventory");
             useItem(enemies);
     }   else {
         console.log("'nah bro'")
     }
     }
+    
     function useItem(enemArr){
     let ytDis = 'the HIDDEN YouTube dislike button';
     let ord66 = 'order 66';                          
@@ -133,24 +131,22 @@ while (health > 0){
     let thanSnap = "Thanos' Gauntlet Snap";         
     let baWill = 'Breakable Will'; 
     
-    
-        if(whatsBag.indexOf(ytDis) !== -1){
-        console.log("push 'y' for the HIDDEN YouTube dislike button ")
+    if(whatsBag.indexOf(ytDis) !== -1){
+        console.log("push 'y' for the HIDDEN YouTube dislike button ");
     }   if(whatsBag.indexOf(ord66) !== -1){
-        console.log("push 'o' for order 66")
+        console.log("push 'o' for order 66");
     }   if(whatsBag.indexOf(unbW) !== -1){
-        console.log("push 'u' for the Unbreakable Will")
+        console.log("push 'u' for the Unbreakable Will");
     }   if(whatsBag.indexOf(snowWa) !== -1){
-        console.log("push 's' for the Snow White Apple")
+        console.log("push 's' for the Snow White Apple");
     }   if(whatsBag.indexOf(thanSnap) !== -1){
-        console.log("push 't' for the Thanos' Snap")
+        console.log("push 't' for the Thanos' Snap");
     }   if(whatsBag.indexOf(baWill) !== -1){
-        console.log("push 'b' for the Breakable Will")
+        console.log("push 'b' for the Breakable Will");
     }
     let userItem = readline.question("Lumpy Toast groans 'So what'll it be?: ");
-    // let killThis = enemArr.indexOf(Math.floor(Math.random() * enemArr.length));
     let boss = Math.floor(Math.random() * enemArr.length);
-    let deadBoss = []
+    let deadBoss = enemArr[boss];
     
     if(userItem === "y"){
         console.log("The YouTube dislike button is toxic AS FU$% and removes your pants from existence...'HAHA'");
@@ -158,12 +154,8 @@ while (health > 0){
     } else if(userItem === "o"){
         console.log("Order 66 executed"); 
         readline.keyInPause();
-        
-        console.log(Math.floor(Math.random() * enemArr.length));
-        // console.log(killThis);
-        
+        console.log('You one shot ' + deadBoss.name + ' :o' );
         enemArr.splice(boss, 1);
-        // console.log('You one shot ' + fish.${name} + ' :o' );
         console.log(enemArr);
         whatsBag.splice(whatsBag.indexOf(ord66), 1);
     } else if(userItem === "u"){
@@ -172,15 +164,15 @@ while (health > 0){
         console.log("You attempt to eat Snow White's Apple, lumpy toast says 'My brother in christ, no time for naps!'");
         whatsBag.splice(whatsBag.indexOf(snowWa), 1);
     } else if(userItem === "t"){
-        console.log("You are a thicc " + health + "HP . You wrestle on Thanos' gauntlet and snap your fingers " + health * .50 + " ...you've lost half your HP")
+        console.log("You are a thicc " + health + "HP . You wrestle on Thanos' gauntlet and snap your fingers " + health * .50 + " ...you've lost half your HP");
         whatsBag.splice(whatsBag.indexOf(thanSnap), 1);
     } else if(userItem === "b" && whatsBag.indexOf(unbW) !== -1){
-        console.log("Breakable will attempts to kill you but the passive effect from Unbreakable will takes your place. Both items withered away.")
+        console.log("Breakable will attempts to kill you but the passive effect from Unbreakable will takes your place. Both items withered away.");
         whatsBag.splice(baWill, 1);
         whatsBag.splice(whatsBag.indexOf(unbW), 1);
     }  else if(userItem === "b"){
-        console.log("Breakable will stops your heart. ")
-        console.log("Lumpy Toast - 'BAAAAAAAAAAAAABE BAAAAAAABE, SMOOTH TOAST I GOT US DUNNUH!!! AND IT'S GOT ALL OUR STUFF THOSE ANGRY BOSSES STOLE FROM US!'")
+        console.log("Breakable will stops your heart. ");
+        console.log("Lumpy Toast - 'BAAAAAAAAAAAAABE BAAAAAAABE, SMOOTH TOAST I GOT US DUNNUH!!! AND IT'S GOT ALL OUR STUFF THOSE ANGRY BOSSES STOLE FROM US!'");
         return health -= 700;
     }  else if(userItem === "p"){
         return
