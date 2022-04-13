@@ -1,0 +1,9 @@
+body {
+    background-image: url(VoskiAirlines.png);
+    background-repeat: no-repeat;
+    /* background-color: blueviolet; */
+    background-color: pink
+}
+.fcolor {
+    color: aqua;
+}

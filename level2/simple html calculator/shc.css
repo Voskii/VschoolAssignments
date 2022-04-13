@@ -1,3 +1,12 @@
 .backMan {
-    border: 10px;
+    background-color: blueviolet;
+}
+body {
+    background-color:rgb(255, 105, 180);
+}
+header {
+    height: 100px;
+    background-color:rgb(0, 0, 0);
+    color: aqua;
+    font-size:xx-large;
 }

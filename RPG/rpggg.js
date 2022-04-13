@@ -14,12 +14,12 @@ let enemies = [{ name: 'CAPTAIN CASSIE', health: 150, item: 'the HIDDEN YouTube 
 
 while (health > 0){
     const whatsApp = readline.question(" Push 'w' to walk, Push 'i' for inventory, Push 'p' for stats: ");
-        if(whatsApp === "w"){
+        if (whatsApp === "w"){
             console.log("wow, some of us don't have legs a%&hole...we couldn't maybe just float? But okay, let's 'move' or whatever")
             walk();
-        } else if(whatsApp === "i"){
+        } else if (whatsApp === "i"){
             checkBag();
-        } else if(whatsApp === "p"){
+        } else if (whatsApp === "p"){
             console.log("Lumpy Toast says you screamed " + userName +  " while sleeping. Assumed that was ya name. You have " + health + "HP" + " and you have " + whatsBag + " in your possession")
         }
     }
