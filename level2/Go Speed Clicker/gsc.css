@@ -1,0 +1,21 @@
+body {
+    background-image: url(WallpaperLO.png);
+    background-repeat: no-repeat;
+}
+
+button {
+    height: 400px;
+    width: 400px;
+    background-color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.flexContainer{
+    display: flex;
+}
+
+#total{
+    background-color: blueviolet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 200px
+}
