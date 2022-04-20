@@ -1,5 +1,4 @@
-@media only screen and (max-width: 500px){
-
+@media only screen and (max-width: 580px){
 h1 {
     color:rgb(224, 208, 56);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -52,11 +51,6 @@ h1 {
     flex-direction: column;
 }
 
-#textBox {
-    /* position: absolute; */
-
-} 
-
 button {
     height: 25px;
     width: 100px;
@@ -83,5 +77,173 @@ p {
 a {
     color: darkgoldenrod;
 }
-
+}
+@media only screen and (min-width: 581px) and (max-width: 990px){
+    h1 {
+        color:rgb(224, 208, 56);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+    }
+    
+    #total {
+        position: sticky;
+        font-size: 50px;
+        color: darkgoldenrod;
+        background-color: black;
+        top: 0px;
+        width: 250px
+        
+    }
+    
+    #grid-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 450px);
+        grid-template-rows: repeat(3, 500px);
+    }
+    
+    #grid-container > div {
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #box1 {
+        background-color: crimson;
+        /* position: absolute; */
+        display: flex;
+        flex-direction: column;
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+    }
+    
+    #box2 {
+        background-color: rgb(49, 0, 82);
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #box3 {
+        background-color: rgb(20, 190, 220);
+        grid-row: 3 / 4;
+        grid-column: 1 / 3;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    }  
+    
+    button {
+        height: 25px;
+        width: 100px;
+        background-color: black;
+        color: rgba(255, 0, 255, 0.726);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    
+    #name {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        color: white
+    }
+    
+    body {
+        background-color:darkslategrey;
+    }
+    
+    p {
+        color: darkgoldenrod;
+    }
+    
+    a {
+        color: darkgoldenrod;
+    }
+@media only screen and (min-width: 990px){
+    h1 {
+        color:rgb(224, 208, 56);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+    }
+    
+    #total {
+        position: sticky;
+        font-size: 50px;
+        color: darkgoldenrod;
+        background-color: black;
+        top: 0px;
+        width: 250px
+        
+    }
+    
+    #grid-container {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(4, 450px);
+        grid-template-rows: repeat(3, 500px);
+    }
+    
+    #grid-container > div {
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #box1 {
+        background-color: crimson;
+        /* position: absolute; */
+        display: flex;
+        flex-direction: column;
+        grid-row: 1 / 2;
+        grid-column: 1 / 5;
+    }
+    
+    #box2 {
+        background-color: rgb(49, 0, 82);
+        grid-row: 2 / 3;
+        grid-column: 1 / 5;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #box3 {
+        background-color: rgb(20, 190, 220);
+        grid-row: 3 / 4;
+        grid-column: 1 / 5;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    button {
+        height: 25px;
+        width: 100px;
+        background-color: black;
+        color: rgba(255, 0, 255, 0.726);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    
+    #name {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        color: white
+    }
+    
+    body {
+        background-color:darkslategrey;
+    }
+    
+    p {
+        color: darkgoldenrod;
+    }
+    
+    a {
+        color: darkgoldenrod;
+    }
 }

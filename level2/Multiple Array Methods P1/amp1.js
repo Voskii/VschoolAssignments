@@ -54,7 +54,7 @@ let ofAge = arr.reduce(function(final, fish){
         return 0
     })
 let bladeTwo = ofAge.map(function(fish){
-    return '<li>' + fish.firstName + fish.lastName + ' is ' + fish.age + '</li>';
+    return '<li>' + fish.firstName + " " + fish.lastName + ' is ' + fish.age + '</li>';
     })
     console.log(bladeTwo);
 }
