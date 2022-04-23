@@ -28,7 +28,34 @@
 //     catch(err){
 //         console.log(err)
 //     }
-//     // console.log(x + y)
 //     return x + y;
 // }
 // sum('1', '2');
+// 2a
+var user = {username: "sam", password: "123abc"};
+function login(username, password){
+    try {
+        if(username !== 'sam' || password !== '123abc'){
+            throw 'bro, who are you? Calling your mama...'
+        }
+        console.log('Login Successful, HAVE THE DAY YOU DESERVE!')
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+login(user.username, user.password);
+//2b
+// var user = {username: "sam", password: "willsmithslap"};
+// function login(username, password){
+//     try {
+//         if(username !== 'sam' || password !== '123abc'){
+//             throw 'bro, who are you? Calling your mama...'
+//         }
+//         console.log('Login Successful, HAVE THE DAY YOU DESERVE!')
+//     }
+//     catch(err){
+//         console.log(err)
+//     }
+// }
+// login(user.username, user.password);

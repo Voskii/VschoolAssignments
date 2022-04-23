@@ -1,0 +1,30 @@
+h3 {
+    color: blueviolet;
+    font-size: 55px;
+}
+
+h1 {
+    color:crimson;
+    font-size: 65px;
+}
+
+h2 {
+    color:orchid;
+    font-size: 40px; 
+}
+
+.Diamond {
+    color:blue;
+}
+
+.Gold {
+    color:darkgoldenrod;
+}
+
+.Platinum {
+    color:deepskyblue;
+}
+
+a {
+    color: honeydew;
+}
