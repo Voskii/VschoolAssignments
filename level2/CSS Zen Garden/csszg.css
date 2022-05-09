@@ -30,10 +30,8 @@ body {
 }
 
 .container > div:nth-child(2) {
-    display: flex;
     text-align: center;
     filter: contrast(150%);
-    
 }
 
 .container > div:nth-child(3) {
@@ -47,7 +45,6 @@ body {
     display: flex;
     flex-direction: column;
     list-style: none;
-    
 }
 
 .container > div:nth-child(5) {
@@ -138,19 +135,43 @@ body {
 .el2b1 {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
     width: 350px;
     height: 70px;
-    align-self: center;
     background-color: rgba(255, 255, 255, 0.11);
     color: #ffffff;
+}
+
+.el2b1:hover {
+    filter:invert(.9)
 }
 
 .el2b1 > div:first-child {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 1.2em;
-    filter: opacity(.4);
-    text-align: center;
+}
+
+
+.el2b2 {
+    width: 70px;
+    height: 70px; 
+    background-color: rgba(13, 90, 100, 0.192);
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(354deg) brightness(103%) contrast(102%);
+    background-repeat: no-repeat;
+    background-size: 36px;
+}
+
+.arrow {
+    width: 60%;
+    margin: auto;
+    display: block;
+}
+
+.el2b2fb {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    filter: opacity(.5);
 }
 
 .el9st {
@@ -222,7 +243,6 @@ li {
 
 #box1:hover {
     filter: invert(.6);
-    
 }
 
 #box2 {
