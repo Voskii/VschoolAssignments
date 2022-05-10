@@ -229,14 +229,16 @@ li {
 }
 
 .icons > div {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     filter: invert(99%) sepia(4%) saturate(180%) hue-rotate(256deg) brightness(115%) contrast(94%);
     border-radius: 0%;
+    
+    transform: scale(.65);
 }
 
 #box1 {
-    background: url('5.svg');
+    background: url('html.png');
     background-repeat: no-repeat;
     transition-duration: 250ms;
 }
@@ -246,7 +248,7 @@ li {
 }
 
 #box2 {
-    background: url('css3.svg');
+    background: url('css.png');
     background-repeat: no-repeat;
     transition-duration: 250ms;
 }
@@ -256,7 +258,7 @@ li {
 }
 
 #box3 {
-    background: url('cc.svg');
+    background: url('CC.png');
     background-repeat: no-repeat;
     transition-duration: 250ms;
 }
@@ -266,7 +268,7 @@ li {
 }
 
 #box4 {
-    background: url('wc.svg');
+    background: url('wheel2.png');
     background-repeat: no-repeat;
     transition-duration: 250ms;
 }
@@ -276,7 +278,7 @@ li {
 }
 
 #box5 {
-    background: url('git.svg');
+    background: url('github.png');
     background-repeat: no-repeat;
     transition-duration: 250ms;
 }
