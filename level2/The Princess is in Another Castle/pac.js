@@ -9,7 +9,7 @@ class Player {
         this.setName = (namePicked) => {
             this.name = namePicked;
         };                                  
-        this.gotHit = () => {
+        gotHit = () => {
             if(status === 'Powered Up'){
                 status = 'Big';
             } else if(status === 'Big'){
@@ -19,7 +19,7 @@ class Player {
             } else {
             }
         };               
-        this.gotPowerup = () => {
+        gotPowerup = () => {
             if(status === 'Small'){
                 status = 'Big';
             } else if(status === 'Big'){
@@ -28,10 +28,10 @@ class Player {
                 hasStar = true;
             }
         };       
-        this.addCoin = () => {
+        addCoin = () => {
             totalCoins++;
         };             
-        this.print = () => {
+        print = () => {
             console.log(name, totalCoins, status, hasStar)
         };                 
     }
@@ -44,3 +44,11 @@ const randomRange = () => {
 
 setInterval(randomRange, 1000);
 const playerOne = new Player('Mario', 0, 'Big', false);
+
+if(randomRange === 0){
+    playerOne.gotHit();
+} else if (randomRange === 1){
+    playerOne.gotPowerup();
+} else if (randomRange === 2){
+    playerOne.addCoin();
+}
