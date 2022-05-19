@@ -1,0 +1,57 @@
+{
+    "stormBreakerGauntlets": [
+        {
+            "howUse": "custom taylors to self"
+        },
+        {
+            "contents": ["unbreakable will", "youtoube dislike button", "soothing cloth comfort inner lacing given by jane foster"]
+        },
+        {
+            "whatIs": "gauntlets to weild the weapon of thor"
+        }
+    ],
+    "indaCouch": [
+        {
+            "howUse": "eat contents"
+        },
+        {
+            "contents": ["dragon heart", "dragon mind", "dragon soul"]
+        },
+        {
+            "whatIs": "the left over remnants of lumpy toasts fated lover"
+        }
+    ],
+    "astralProtection": [
+        {
+            "howUse": "make mental choice to use after eating indacouch"
+        },
+        {
+            "contents": ["lumpy toast super seared one", "lumpy toast super seared two", "lumpy toast super seared three"]
+        },
+        {
+            "whatIs": "creates personalities out of any attack that directs its initial intentions to its caster"
+        }
+    ],
+    "tacoDar": [
+        {
+            "howUse": "target sense in contents"
+        },
+        {
+            "contents": ["nose of fenrir", "speedforce of barry allen", "innate desire to tip 110% for great taste"]
+        },
+        {
+            "whatIs": "ability to find tacos no matter the location or amount of effort required to make"
+        }
+    ],
+    "refill": [
+        {
+            "howUse": "think of recent accomplishments and be grateful for things and you cherish"
+        },
+        {
+            "contents": ["refill self mind", "refill self body", "refill self soul"]
+        },
+        {
+            "whatIs": "the ability to refill self mind, body, or soul. grants lumpy toast the ability to never give up."
+        }
+    ]
+}
