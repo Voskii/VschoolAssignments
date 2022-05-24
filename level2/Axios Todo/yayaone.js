@@ -1,24 +1,12 @@
-const todoList = document.getElementById('scroll')
+const todoList = document.getElementById('scroll');
 const delButtt = document.getElementById('delButt')
 
-function axGetCall (){
-    axios.get("https://api.vschool.io/kyle/todo")
-    .then(response =>  {
-        for(let i = 0; i < response.data.length; i++){
-            birthTodo(response.data[i])
-            // console.log('main data' , response.data[i])
-        }
 
-        
-    })
-    .catch(error => console.log(error))
-}
-
-axGetCall();
 
 function birthTodo(todo){
     // console.log(`hopefully this ${todo} is showing`)
     // create/select the element
+    for(let i = 0; i < todo.length; i++){
     const acheOne = document.createElement('h1')
     const divv = document.createElement("div")
     divv.id = todo._id
@@ -46,84 +34,82 @@ function birthTodo(todo){
 
     // append
     todoList.appendChild(divv)
-    divv.appendChild(acheOne)
     divv.appendChild(checkMe)
+    divv.appendChild(acheOne)
     divv.appendChild(myDel)
     divv.appendChild(myEdit)
-    
+    //consider reloading page here for checkbox
     // console.log(`what is ${checkMe}`)
-
-    if(isCompleted) {
-        acheOne.style.textDecoration = 'line-through';
-        checkMe.checked = true;
-    } else {
-        acheOne.style.textDecoration = 'none';
-        checkMe.checked = false;
-    } 
-
-    if(todo.imgUrl) {
-        // console.log('does have image')
-        imgD.setAttribute('class', 'imgJSON')
-        imgD.setAttribute('src', todo.imgUrl)
-        divv.appendChild(imgD)
-    } else {
-        // console.log('does not have image')
-        imgD.setAttribute('class', 'imgJSON');
-        imgD.setAttribute('src', 'https://thumbs.dreamstime.com/z/nope-concept-vintage-wooden-letterpress-type-word-written-wood-rustic-background-178547404.jpg')
-        divv.appendChild(imgD);
-    }
-
     checkMe.addEventListener("change", () => {
-        
-        if(!checkMe.checked){
-            acheOne.style.textDecoration = 'none';
-            console.log('in isCompleted if as true')
+        todoList.textContent = ""
+        for(let i = 0; i < todo.length; i++){
+            if(isCompleted){
             axios.put(`https://api.vschool.io/kyle/todo/${todo._id}`, {
                     completed: "false"
             })
             
-            .then(response => console.log(response.data))
+            .then(response => birthTodo(response.data[i]))
             .catch(error => console.log(error))
-            
+            acheOne.style.textDecoration = 'none'
         }  else {
-            acheOne.style.textDecoration = 'line-through';
-            console.log('in isCompleted if as false')
             axios.put(`https://api.vschool.io/kyle/todo/${todo._id}`, {
                 completed: "true"
             })
-            .then(response => console.log(response.data))
-            .catch(error => console.log(error))
             
-        }
-    
-    })
-
-    myDel.addEventListener("click", (e)=>{
-        
-        // parent.removeChild(divv);
-        console.dir(e.target)
-        
-        console.log('I am in FIRST del function!')
-        
-        axios.delete(`https://api.vschool.io/kyle/todo/${todo._id}`)
-            .then(response => console.log(response.data))
+            .then(response => birthTodo(response.data[i]))
             .catch(error => console.log(error))
-        console.log('after the axios del call')
-        divv.innerHTML = ''
-    })
-    // myDel.addEventListener("click", () => {
-    //     console.log('I am in second del function!')
-    //     console.log(todo._id)
-    //     divv.removeChild(myEdit)
-    //     divv.removeChild(myDel)
-    //     divv.removeChild(checkMe)
-    //     divv.removeChild(imgD)
-    //     divv.removeChild(acheOne)
+            acheOne.style.textDecoration = 'line-through'
+        }
         
-    //     divv.innerHTML = ''
-    // })
+        }
+    })
+    myDel.addEventListener("click", (e)=>{
+        console.dir(e.target)
+        divv.removeChild(acheOne)
+        divv.removeChild(myEdit)
+        divv.removeChild(myDel)
+        divv.removeChild(checkMe)
+    })
+    myDel.addEventListener("click", () => {
+        console.log('I am in del function!')
+        console.log(todo._id)
+        axios.delete(`https://api.vschool.io/kyle/todo/${todo._id}`)
+            .then(response => birthTodo(response.data))
+            .catch(error => console.log(error))
+    })    
     
+    //add checkbox if strikethrough then also add strike. checkbox onchange function(put to database need id for object)
+    //call get again here?
+    if(isCompleted === true) {
+        acheOne.style.textDecoration = 'line-through';
+        // console.log(`${fish} is true!`);
+    } 
+    if(todo.imgUrl){
+        // console.log('does have image')
+        imgD.setAttribute('class', 'imgJSON')
+        imgD.setAttribute('src', todo.imgUrl)
+        acheOne.appendChild(imgD)
+    } else {
+        // console.log('does not have image')
+        imgD.setAttribute('class', 'imgJSON');
+        imgD.setAttribute('src', 'https://thumbs.dreamstime.com/z/nope-concept-vintage-wooden-letterpress-type-word-written-wood-rustic-background-178547404.jpg')
+        acheOne.appendChild(imgD);
+    }
 }
+}
+
+// function changeMe(todo){
+//     if(todo.completed){
+
+//     }
+// }
+
+
+axios.get("https://api.vschool.io/kyle/todo")
+    .then(response =>  {
+        birthTodo(response.data)
+    })
+    .catch(error => console.log(error))
 
 const todoForm = document.todoForm
 
@@ -139,3 +125,4 @@ todoForm.addEventListener("submit", function(e){
         .then(response => birthTodo(response.data))
         .catch(error => console.log(error))
 })
+
