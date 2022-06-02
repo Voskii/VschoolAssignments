@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+.nameContainer {
+    display: flex;    
+}
+
+.nameContainer > h1 {
+    width: 178.06px;
+    height: 25.81px;
+    left: 186px;
+    top: 382px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.buttImg1 {
+    display: flex;
+    flex-direction: row;
+    width: 115px;
+    height: 34px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+}
+
+.buttImg2 {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    width: 115px;
+    height: 34px;
+}
+
+.mainContainer {
+    height: 399px;
+    width: 317px;
+    left: 116px;
+    top: 361px;
+    background: #1A1B21;
+}
+
+.footContainer {
+    height: 64px;
+    width: 317px;
+    left: 116px;
+    top: 760px;
+    background: #161619;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.footImages {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    width: 25px;
+}
+
+.footImages > div {
+    background-image: url(./images/twit.svg)
+}
+
+.footImages > div:nth-child(2) {
+    background-image: url(./images/facebook.svg)
+}
+
+.footImages > div:nth-child(3) {
+    background-image: url(./images/instagram.svg)
+}
+
+.footImages > div:nth-child(4) {
+    background-image: url(./images/github.svg)
+}
+
+.voskiImg {
+    background-image: url(./images/me.png);
+    width: 317px;
+    height: 317px;
+    left: 116px;
+    top: 44px;
+    border-radius: 10px 10px 0px 0px;
+}
