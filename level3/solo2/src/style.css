@@ -14,10 +14,11 @@ body {
 .nameContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;  
 }
 
 .nameContainer > h1 {
+    margin-left: 0;
     width: 178.06px;
     height: 25.81px;
     left: 186px;
@@ -32,21 +33,32 @@ body {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.butt {
+.butt1 {
     text-align: center;
     box-sizing: border-box;
-    /* Auto layout */
     padding: 9px 13px 9px 11px;
     gap: 8px;
     width: 115px;
     height: 34px;
     left: 151px;
     top: 468px;
-    /* white */
     background: #FFFFFF;
-    /* gray/300 */
     border: 1px solid #D1D5DB;
-    /* shadow/sm */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+}
+
+.butt2 {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 9px 13px 9px 11px;
+    gap: 8px;
+    width: 115px;
+    height: 34px;
+    left: 151px;
+    top: 468px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
 }
@@ -54,48 +66,64 @@ body {
 .container {
     height: 399px;
     width: 317px;
+}
+
+.container2 {
+    height: 399px;
+    width: 317px;
     left: 116px;
-    top: 361px;
+    margin-left: 0;
+    margin-top: -15px;
     background: #1A1B21;
 }
 
 .footContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     height: 64px;
     width: 317px;
     left: 116px;
     top: 760px;
     background: #161619;
     border-radius: 0px 0px 10px 10px;
+    margin: 0%;
 }
 
-.footImages {
-    display: flex;
-    flex-direction: row;
+.footContainer > div {
+    filter: invert(69%) sepia(10%) saturate(320%) hue-rotate(213deg) brightness(82%) contrast(81%);
+    background-repeat: no-repeat;
+}
+
+.fish1 {
+    background-image: url(./images/twit.svg);
+    height: 25px;
+    width: 25px;
+    margin-left: 0;
+}
+
+.fish2 {
+    background-image: url(./images/facebook.svg);
     height: 25px;
     width: 25px;
 }
 
-.footImages > div {
-    background-image: url(./images/twit.svg)
+.fish3 {
+    background-image: url(./images/instagram.svg);
+    height: 25px;
+    width: 25px;
 }
 
-.footImages > div:nth-child(2) {
-    background-image: url(./images/facebook.svg)
-}
-
-.footImages > div:nth-child(3) {
-    background-image: url(./images/instagram.svg)
-}
-
-.footImages > div:nth-child(4) {
-    background-image: url(./images/github.svg)
+.fish4 {
+    background-image: url(./images/github.svg);
+    height: 25px;
+    width: 25px;
 }
 
 .voskiImg {
     background-image: url(./images/me.png);
     width: 317px;
     height: 317px;
-    left: 116px;
-    top: 44px;
+    margin: 0%;
     border-radius: 10px 10px 0px 0px;
 }

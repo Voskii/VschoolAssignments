@@ -7,13 +7,13 @@ export default function Main () {
             About
             </h2>
             <div className="aboutText">
-            My Description here: Lisa's mom has got it going on! Ehhhhh maybe, I do
+            Try hard father
             </div>
             <h2>
             Interests
             </h2>
             <div className="interestsText">
-            things that I am intere
+            Fish Taco's
             </div>
         </main>
     )
