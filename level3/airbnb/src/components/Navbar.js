@@ -1,9 +1,10 @@
 import React from "react"
+import airlogo from "../images/airbnb.png"
 
 export default function Navbar() {
     return (
         <nav>
-            <img src="./images/airbnb.png" className="navlogo" alt=""/>
+            <img src={airlogo} className="navlogo" alt=""/>
         </nav>
     )
 }

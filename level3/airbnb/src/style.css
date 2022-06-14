@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: rgb(173, 94, 94);
+  background-color: rgb(255, 255, 255);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -25,10 +25,8 @@ section {
 }
 
 .heroimg {
-  
   max-width: 400px;
   align-self: center;
-  /* background: url(./images/group.png) */
 }
 .heroheader {
   margin-bottom: 16px;
@@ -40,4 +38,30 @@ section {
 
 .navlogo {
   max-width: 100px;
+}
+
+.card {
+  width: 175px;
+  font-size:12px;
+}
+
+.cardimg {
+  width: 100%;
+}
+
+.cardstats {
+  display: flex;
+  align-items: center;
+}
+
+.cardstar {
+  height: 14px;
+}
+
+.gray {
+  color: #918E9B;
+}
+
+.boldme {
+  font-weight: bold;
 }
