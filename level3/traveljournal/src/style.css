@@ -1,0 +1,26 @@
+nav {
+    display: flex;
+    height: 55px;
+    padding: 20px 36px;
+    background-color: brown;
+}
+
+.navlogo {
+    max-width: 100px;
+}
+
+.past {
+    width: 470px;
+    font-size:12px;
+    flex: 0 0 auto;         
+    display: flex;          
+    flex-direction: column;
+    position: relative;
+}
+
+.pastlist {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+}
