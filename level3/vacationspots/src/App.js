@@ -1,13 +1,15 @@
 import React from "react"
-import Navbar from "./components/Navbar"
-import Past from "./components/Past"
+import Header from "./components/Header"
+import Cheeks from "./components/Cheeks"
+import Stats from "./components/Stats"
 import Data from "./data"
-import Space from "./components/Space"
+
+
 
 export default function App() {
   const mapMe = Data.map(item => {
     return (
-      <Past
+      <Shouldprobbecheeks
       key={item.id}
       {...item}
       />
@@ -16,11 +18,13 @@ export default function App() {
 
   return (
     <div>
-      <Navbar />
-      <Space />
-      <section className="pastlist">
+      <Header />
+      <Cheeks />
+      <Stats />
+      <section className="">
         {mapMe}
       </section>
     </div>
   )
+
 }

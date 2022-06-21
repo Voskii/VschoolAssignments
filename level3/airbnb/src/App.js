@@ -2,26 +2,25 @@ import React from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Card from "./components/Card"
-import katieimg from "./images/katie-zaferes.png"
-
-/*
-Challenge: Build the Navbar component.
-Check the Figma file for the design specifics.
-*/
+import Data from "./data"
 
 export default function App() {
+    const mapMe = Data.map(item => {
+        return (
+            <Card
+            key={item.id}
+            {...item}
+            />
+        )
+    })
+    
     return (
         <div>
             <Navbar />
             <Hero />
-            <Card 
-                img={katieimg}
-                rating="5.0"
-                reviewCount={6}
-                country="USA"
-                title="Life Lessons with Katie Zaferes"
-                price={136}
-            />
+            <section className="cards-list">
+                {mapMe}
+            </section>
         </div>
     )
 }

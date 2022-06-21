@@ -1,19 +1,21 @@
 import React from "react"
+import gpsicon from "../images/gps.png"
 
 export default function Past(props) {
-    
     return (
-        <div className="past">
-            
-            <img src={props.coverImg} className="pastimg" alt=""/>
-            <div className="paststats">
-                
-                <span>{props.rating}</span>
-                <span className="gray">({props.reviewCount}) • </span>
-                <span className="gray">{props.location}</span>
+        <div className="pastContainer">
+            <img src={props.googleMapsUrl} className="pastimg" alt=""/>
+            <div className="locationinfo">
+                <img src={gpsicon} className="gps"alt=""/>
+                <div className="locationname">{props.location}</div>
+                <a className="apple" href="">View on Google Maps</a>
             </div>
-            <p>{props.title}</p>
-            <p className="pastprice"><span className="boldme">From ${props.price}</span> / person</p>
+            
+            <h1 className="where">{props.title}</h1>
+            <small className="date">{props.startDate} - {props.endDate}</small>
+            <h3 className="desc">
+                {props.description}
+            </h3>
         </div>
     )
 }

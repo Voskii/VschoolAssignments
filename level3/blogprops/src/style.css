@@ -1,0 +1,11 @@
+.footContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+    transform: scale(.1785);
+}
+
+.copywrongmf {
+
+}
