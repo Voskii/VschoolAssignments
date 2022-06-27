@@ -1,7 +1,7 @@
 import React from "react"
 import Header from "./components/Header"
 import Cheeks from "./components/Cheeks"
-import Stats from "./components/Stats"
+import Footer from "./components/Footer"
 import Data from "./data"
 
 
@@ -9,7 +9,7 @@ import Data from "./data"
 export default function App() {
   const mapMe = Data.map(item => {
     return (
-      <Shouldprobbecheeks
+      <Cheeks
       key={item.id}
       {...item}
       />
@@ -17,13 +17,13 @@ export default function App() {
   })
 
   return (
-    <div>
+    <div className="page">
       <Header />
-      <Cheeks />
-      <Stats />
       <section className="">
         {mapMe}
       </section>
+      <Footer />
+      
     </div>
   )
 

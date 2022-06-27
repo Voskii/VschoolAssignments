@@ -1,7 +1,86 @@
-.name {
-    
+
+
+.dbname {
+    font-size: 5em;
+    font-family: 'Rubik Moonrocks', cursive;
 }
 
-.nameinfo {
+/* .nameinfo {
+    
+} */
+/* 
+.page {
+    background-image: url('./images/bg.png');
+    background-size: auto;
+    background-attachment: fixed;
+    background-repeat: repeat;
+} */
 
+html {
+    background-color: black;
+}
+
+.dbzimg {
+    width: 300px;
+    height: 450px;
+    margin-left: 20px;
+}
+
+.cheeeks {
+    display: flex;
+    flex-direction: row;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    color: aqua;
+    border: 1px solid aqua;
+}
+
+.birth {
+    margin-left: 20px;
+    color: aqua;
+    border: 1px solid aqua;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    color: aqua;
+    border: 1px solid aqua;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.ltext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Cairo', sans-serif;
+}
+
+.divdesc {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.desc {
+    font-family: 'Cairo', sans-serif;
+    width: 80%;
+}
+
+.wherefrom {
+    font-family: 'Rubik Moonrocks', cursive;
+    display: flex;
+    justify-content: center;
+}
+
+.girth {
+    font-family: 'Rubik Moonrocks', cursive;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
 }

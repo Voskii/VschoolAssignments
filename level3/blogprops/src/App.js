@@ -1,5 +1,6 @@
 import React from "react"
 import BlogList from "./components/BlogList"
+import BlogPost from "./components/BlogPost"
 import BlueButton from "./components/BlueButton"
 import Footer from "./components/Footer"
 import Grab from "./components/grab"
@@ -12,18 +13,15 @@ export default function App() {
     return (
       <div className="">
         
-        <BlogList 
+        <BlogPost 
+          key={item.id}
+          {...item}
+        />
+        
+        {/* <Header 
         key={item.id}
         {...item}
-        />
-        <Header 
-        key={item.id}
-        {...item}
-        />
-        <Grab 
-        key={item.id}
-        {...item}
-        />
+        /> */}
 
       </div>
   )
@@ -31,12 +29,15 @@ export default function App() {
 
   return (
     <div>
-      
-      <BlueButton />
-      <Footer />
-      <section className="pastlist">
+      <Header />
+      <Grab />
+      <BlogList />
+      <section className="">
       {mapMe}
       </section>
+      <BlueButton />
+      <Footer />
+      
     </div>
   )
 }
