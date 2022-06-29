@@ -1,0 +1,31 @@
+.pageDaddy {
+
+}
+
+.petMe {
+    width: fit-content;
+    border: 1px solid aqua;
+}
+
+.friendMe {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleName {
+    width: 35px;
+
+}
+
+.titleBreed {
+
+}
+
+.petName {
+
+}
+
+.petBreed {
+
+}
+

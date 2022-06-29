@@ -1,24 +1,24 @@
 import React from "react"
-import Data from "./data"
+import Friend from "./Friend"
 
-export default function FriendList() {
-    const mapMe = Data.map(item => {
+export default function FriendList(props) {
+  const {name, friends} = props
+    const mapMe = friends.map(item => {
       return (
         <Friend
         key={item.id}
-        {...item}
+        name={item.name}
+        age={item.age}
+        pets={item.pets}
         />
     )
     })
   
     return (
-      <div className="page">
-        <Header />
-        <section className="">
+      <div>
+        <section className="FriendMe">
           {mapMe}
         </section>
-        <Footer />
-        
       </div>
     )
   

@@ -1,13 +1,23 @@
 
 import React from 'react'
+import Pet from "./Pet"
 
 export default function Friend(props) {
-    const mapMe = Data.map(item => {
+    const mapMe = props.pets.map(pet => {
         return (
-          <Cheeks
-          key={item.id}
-          {...item}
-          />
-      )
-      })
+            <Pet
+                name={pet.name}
+                breed={pet.breed}
+            />
+        )
+        })
+
+        return (
+        <section className="FriendMe">
+        <div>
+            hi
+        </div>
+        {mapMe}
+        </section>
+        )
 }
