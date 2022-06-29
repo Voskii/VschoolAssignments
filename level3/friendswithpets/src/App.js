@@ -7,7 +7,7 @@ import Data from "./data"
 export default function App() {
 
   return (
-    <div className="pageDaddy">
+    <div className="">
       <section className="">
         <FriendList friends={Data} />
       </section>

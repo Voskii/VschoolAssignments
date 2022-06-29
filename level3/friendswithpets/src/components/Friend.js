@@ -13,11 +13,20 @@ export default function Friend(props) {
         })
 
         return (
-        <section className="FriendMe">
-        <div>
-            hi
-        </div>
-        {mapMe}
-        </section>
+            <div className="pageDaddy">
+                <div className="friendDaddy">
+                    <div className='friendMe'><span className='fmName'>Name:</span>
+                        <span className='fmnName'>{props.name}</span>
+                    </div>
+                    <div className='friendAge'><span className='faAge'>Age:</span>
+                        {props.age}
+                    </div>
+                </div>
+                <div className="">
+                    {mapMe}
+                </div>
+            </div>
         )
+
+        
 }

@@ -1,25 +1,90 @@
+* {
+    background: #7d8b67;
+    font-size: 1.0300em;
+}
+
 .pageDaddy {
-
-}
-
-.petMe {
-    width: fit-content;
-    border: 1px solid aqua;
-}
-
-.friendMe {
     display: flex;
     flex-direction: column;
 }
+
+.friendDaddy {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+.friendMe {
+    
+    font-family: 'Cairo', sans-serif;
+    
+}
+
+.fmName {
+    font-family: 'Rubik Moonrocks', cursive;
+    color: #7c3e51d5;
+}
+
+.fmnName {
+    padding-left: 5px;
+    color: #f8dbdf
+}
+
+.faAge {
+    font-family: 'Rubik Moonrocks', cursive;
+    padding-left: 15px;
+    color: #7c3e51d5;
+}
+
+.friendAge {
+    font-family: 'Cairo', sans-serif;
+    color: #f8dbdf
+}
+
+.petMe {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    border: 1px solid #7c3e51d5;
+    padding-left: 10px;
+}
+
+.petName {
+    font-family: 'Cairo', sans-serif;
+    color: #f8dbdf
+}
+
+.petBreed{
+    font-family: 'Cairo', sans-serif;
+    color: #f8dbdf
+}
+
+.tpName {
+    font-family: 'Rubik Moonrocks', cursive;
+    color: #efafb9
+    /* width: fit-content; */
+}
+
+.tpBreed {
+    font-family: 'Rubik Moonrocks', cursive;
+    color: #efafb9
+
+}
+
+.titleBreed {
+    margin-left: 50px;
+
+}
+
+
 
 .titleName {
     width: 35px;
 
 }
 
-.titleBreed {
 
-}
 
 .petName {
 

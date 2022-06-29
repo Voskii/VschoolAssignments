@@ -2,7 +2,8 @@ import React from "react"
 import Friend from "./Friend"
 
 export default function FriendList(props) {
-  const {name, friends} = props
+  const {friends} = props
+  // wth is that ^^
     const mapMe = friends.map(item => {
       return (
         <Friend
