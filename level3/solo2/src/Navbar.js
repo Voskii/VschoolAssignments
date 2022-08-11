@@ -1,15 +1,17 @@
 import React from "react"
+import intellect from "./images/email.svg"
+import intellectsmile from "./images/linkedin.svg"
 
 export default function Navbar() {
     return (
-        <div>
+        <div className="butts">
             <button className="butt1">
-                <div src=""></div>
-                <div>Email</div>
+                <img src={intellect} height={16}/>
+                <div className="emailmeClan">Email</div>
             </button>
             <button className="butt2">
-                <div></div>
-                <div>LinkedIn</div>
+                <img src={intellectsmile} height={16}/>
+                <div className="linkmeClan">LinkedIn</div>
             </button>
         </div>
     )
