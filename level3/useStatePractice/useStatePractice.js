@@ -34,24 +34,14 @@
 // 3. Add a new person object to the following `people` array in state. You can hard-code a new object but it must be a person object with `firstName` and `lastName` properties.
     
 //     
-    // const [people, setPeople] = useState([
-    // 	{
-    // 	    firstName: "John",
-    // 		lastName: "Smith"
-    // 	}
-    // ])
-    
-    // setPeople([
-    // 	{
-    // 	    firstName: "John",
-    // 		lastName: "Smith"
-    // 	},
-    //     {
-    // 	    firstName: "Kevin",
-    // 		lastName: "Bacon"
-    // 	}
-    // ])
-//     
+// const [people, setPeople] = useState([
+// 	{
+// 		firstName: "John",
+// 		lastName: "Smith"
+// 	}
+// ])
+
+// setPeople(prevPeople => [...prevPeople, `firstName: "Kyle, lastName: "Shutt"`] )
     
 // 4. Change the following state-setting functions to use an implicit return
     // 1. 
@@ -59,7 +49,7 @@
         
         // const [colors, setColors] = setState(["pink", "blue"])
         
-        // setColors(prevColors => prevColors + "green")
+        // setColors(prevColors => [...prevColors] + "green")
         
 
 //     2. 
@@ -69,18 +59,20 @@
 //         	count: 0
 //         })
         
-//         setCountObject(prevState => prevState + 1)
+//         setCountObject(prevState => prevState.count + 1)
 // //         
         
 // 5. Update the following state to add an additional property `age` and set the value to `30`, ensuring that the other properties are not overwritten.
     
 //     
-    // const [person, setPerson] = useState({
-    // 		firstName: "John",
-    // 		lastName: "Smith"
-    // })
+    const [person, setPerson] = useState({
+    		firstName: "John",
+    		lastName: "Smith"
+    })
     
-    // setPerson(oldperson => oldperson + {age:"30"})
+    setPerson(oldperson => oldperson + `age:"30"`)
+
+    console.log(person)
     
     
 // 6. What’s wrong with the following state update?

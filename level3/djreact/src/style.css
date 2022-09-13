@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+.okay {
+  color: aqua;
+}
+
+.header {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 4px solid aqua;
+  border-radius: 30%;
+  text-align: center;
+  padding: 10px;
+  color: violet;
+}
+
+.square {
+  border: 5px dotted violet;
+  height: 400px;
+  width: 225px;
+}
