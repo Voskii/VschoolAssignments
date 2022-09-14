@@ -10,9 +10,12 @@ body {
 
 .okay {
   color: aqua;
+  font-family: 'Rubik Moonrocks', cursive;
+  /* display: flex;
+  flex-direction: column; */
 }
 
-.header {
+/* .header {
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
@@ -21,10 +24,51 @@ body {
   text-align: center;
   padding: 10px;
   color: violet;
+} */
+
+.header {
+  border: 4px solid aqua;
+  border-radius: 30%;
+  text-align: center;
+  padding: 10px;
+  color: violet;
 }
 
 .square {
-  border: 5px dotted violet;
-  height: 400px;
-  width: 225px;
+  display: flex;
+  flex-direction: row;
+}
+
+.gContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 230px);
+  grid-template-rows: repeat(2, 405px);
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.flexButtBox {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(2, 80px);
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.beautifyMe {
+  border: 4px solid aqua;
+  background-color: black;
+  color: violet;
+  font-family: 'Rubik Moonrocks', cursive;
+  font-size: 1.29em;
+}
+
+button {
+  border-radius: 30%;
+}
+
+button:hover {
+  background-color: aquamarine;
+  transform: scale(1.75);
+  opacity: .25;
 }

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Square from './Square';
 
 export default function BoxOFunzies() {
-    const [fish, setFish] = useState(["white", "white", "white", "white"]);
-    const colors = ["white", "white", "white", "white"];
+    const [colors, setcolors] = useState(["white", "white", "white", "white"]);
+    console.log(colors);
+    
 
     return (
         <div className="gContainer">
