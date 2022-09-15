@@ -9,7 +9,7 @@ export default function Square(props) {
             width: "225px",
             height: "400px",
             display: "inline-flex",
-            backgroundColor: props.background
+            backgroundColor: props.fish
         }}>
 
         </div>
