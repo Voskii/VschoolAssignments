@@ -80,4 +80,4 @@
 
 // setColors("green")
 
-// That ^^ will not track the original colors :o
+// That ^^ will not track the original colors :o not an array
