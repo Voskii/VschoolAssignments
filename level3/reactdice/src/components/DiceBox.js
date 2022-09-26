@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function DiceBox(props) {
     console.log("I am in DiceBox function!")
-    const fishSticks = [Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1]
+    const fishSticks = [Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1, Math.floor(Math.random() * 5) + 1]
     
     const [numbers, setNumbers] = useState([0, 0, 0, 0, 0])
     // const fish = Math.floor(Math.random() * 5) + 1
