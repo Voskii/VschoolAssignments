@@ -11,17 +11,18 @@ export default function App(props) {
   
   const changeTop = () => {
     console.log("I should be changing the top 2 squares!")
-    setColors (['purple', 'purple', 'black', 'black'])
+    setColors(prevColors => {
+      return (['purple', 'purple', prevColors[2], prevColors[3]])
+    })
   }
-  
   
   const changeAll = () => {
     console.log("I should be changing all squares")
     setColors(prevColors => {
       if(prevColors[0] === 'white')
-        return ['black', 'black', 'black', 'black']
+        return ['black', 'white', 'white', 'white']
       else 
-        return ['white', 'white', 'white', 'white']
+        return ['white', 'black', 'black', 'black']
     })
   }
 
@@ -38,7 +39,35 @@ export default function App(props) {
       return [prevColors[0], prevColors[1], prevColors[2], 'blue']
     })
   }
+
+        //     THE LAST FOUR BUTTONS BRO STOP TOUCHING THE TOP ONES
+
+  const changeOne = () => {
+    setColors(prevColors => {
+      return ['yellow', prevColors[1], prevColors[2], prevColors[3]]
+    })
+  }
+
+  const changeTwo = () => {
+    setColors(prevColors => {
+      return [prevColors[0], 'aqua', prevColors[2], prevColors[3]]
+    })
+  }
   
+  const changeThree = () => {
+    setColors(prevColors => {
+      return [prevColors[0], prevColors[1], 'pink', prevColors[3]]
+    })
+  }
+
+  const changeFour = () => {
+    setColors(prevColors => {
+      return [prevColors[0], prevColors[1], prevColors[2], 'red']
+  })
+}
+
+//     AUDIO BRO
+
   return (
     <div className="okay">
       <div>
@@ -53,10 +82,10 @@ export default function App(props) {
       <button className="beautifyMe" onClick={changeTop}>B2</button>
       <button className="beautifyMe" onClick={changeBottomLeft}>B3</button>
       <button className="beautifyMe" onClick={changeBottomRight}>B4</button>
-      <button className="beautifyMe">B5</button>
-      <button className="beautifyMe">B6</button>
-      <button className="beautifyMe">B7</button>
-      <button className="beautifyMe">B8</button>
+      <button className="beautifyMe" onClick={changeOne}>B5</button>
+      <button className="beautifyMe" onClick={changeTwo}>B6</button>
+      <button className="beautifyMe" onClick={changeThree}>B7</button>
+      <button className="beautifyMe" onClick={changeFour}>B8</button>
       </div>
     </div>
   );
