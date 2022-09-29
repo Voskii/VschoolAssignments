@@ -43,7 +43,6 @@ body {
 }
 
 button {
-  
   margin-top: 50px;
   border-radius: 30%;
   /* transition: all 3s ease; why this no worky :( */
@@ -52,7 +51,6 @@ button {
   color: violet;
   font-family: 'Rubik Moonrocks', cursive;
   font-size: 1.29em;
-  
 }
 
 button:hover {
