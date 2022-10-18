@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import Badge from './components/Badge'
 
 export default function App() {
-  
+  const hasSubmit = false;
+
+  // hasSubmit ? <Badge /> : '';
   
   return (
     <div className='formm'>
-      <form className=''>
+      <form className='formm'>
         <div className='container'>
           <input className='inputMe' placeholder="Name" type="text"/>
           <input className='inputMe' placeholder="Last Name" type="text"/>
@@ -20,6 +22,8 @@ export default function App() {
           <button>SMASH</button>
         </div>
       </form>
+      <Badge />
     </div>
-  );
+    
+  )
 }

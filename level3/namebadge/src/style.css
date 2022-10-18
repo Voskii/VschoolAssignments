@@ -66,3 +66,12 @@ button {
   width: 620px;
   height: 400px;
 }
+
+header {
+  font-family: 'Rubik Moonrocks', cursive;
+  text-align: center;
+  font-size: 2em;
+  color: aqua;
+  height: fit-content;
+  background-color: violet;
+}
