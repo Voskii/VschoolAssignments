@@ -1,35 +1,47 @@
 import React, { useState } from 'react'
+import Cheeks from './components/Cheeks'
 
 export default function App() {
-  const [formData, setFormData] = useState('')
+  const [input, setInput] = useState('')
+  const [names, setNames] = useState([])
 
   function handleChange(event) {
-    setFormData(event.target.value)
+    setInput(event.target.value)
 
   }
 
-const nameArray = ['']
   
+  const nameList = names.map(index => {
+    return (
+    <Cheeks 
+    // fish={!index ? 'Your Name List Here' : index} />
+    fish={index} />
+    )
+  })
+ 
+// const nameList = names.map(index => index + ` `)
+
 function handleSubmit(event){
-    console.log('in handlesub func')
-    console.log(formData)
+    // console.log('in handlesub func')
+    console.log(input)
     event.preventDefault()
-  //   setFormData(prevData => [...prevData, 'cheese'] )
-    nameArray.push(formData)
-    console.log(nameArray)
+    setNames(prevNames => [...prevNames, input] )
+    console.log(names)
+    // console.log((event.target.value))
+    // event.target.value = ''; why this no worky?
   }
   
 
-  // const nameList = 
-
+  
+  
   return (
     
       <form className='wholeForm' onSubmit={handleSubmit}>
-        <input className='inputMe' onChange={handleChange} placeholder="Name" type="text" value={formData.randName}/>
-        <h1 className='whatTyped'>{formData}</h1>
+        <input className='inputMe' onChange={handleChange} placeholder="Name" type="text" value={input.randName}/>
+        <h1 className='whatTyped'>{input}</h1>
         <button onClick={handleSubmit}>SMASH</button>
         <ol>
-          {/* {nameList} */}
+          {nameList}
         </ol>
       </form>
   );
