@@ -23,10 +23,12 @@ export default function App() {
 
 function handleSubmit(event){
     // console.log('in handlesub func')
-    console.log(input)
+    // console.log(input)
+    
     event.preventDefault()
     setNames(prevNames => [...prevNames, input] )
     console.log(names)
+    // setInput("")
     // console.log((event.target.value))
     // event.target.value = ''; why this no worky?
   }
