@@ -34,8 +34,6 @@ function handleSubmit(event){
   }
   
 
-  
-  
   return (
     
       <form className='wholeForm' onSubmit={handleSubmit}>
