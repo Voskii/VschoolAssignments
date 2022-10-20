@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Badge from './components/Badge'
+import RandomColor from './components/RandomColor'
 
 // hasSubmit ? <Badge /> : '';
 
@@ -67,6 +68,7 @@ function handleChange(event) {
         </div>
       </form>
       {badgeList}
+      <RandomColor /> 
     </div>
     
   )
