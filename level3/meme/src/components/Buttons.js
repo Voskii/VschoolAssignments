@@ -1,11 +1,15 @@
 import React, { useState } from "react"
 
 export default function Buttons(props){
-    console.log(props.data)
-    console.log(props.fish)
-    console.log(props.data.isDeleted)
+    const {fish, data, id, saveMeme, setSaveMeme} = props
+    console.log(saveMeme)
+    console.log(props)
+    console.log(data)
+    console.log(fish)
+    console.log(data.isDeleted)
+    console.log(setSaveMeme)
     const [visible, setVisible] = useState(!true)
-    const [goAway, setGoAway] = useState(true)
+    
     const [memeInputs, setMemeInputs] = useState({
         topText: props.data.topText,
         bottomText: props.data.bottomText
@@ -58,14 +62,28 @@ export default function Buttons(props){
         updateMemeItem(props.id, memeInputs)
     }
 
-    const deleteMe = () => {
-        console.log('go away')
-        setGoAway((prev) => !prev)  
-    }
 
+
+    const deleteMe = (index) => {
+        console.log(props)
+        console.log(typeof(props))
+        setSaveMeme(preSaveMeme => {
+            return [...preSaveMeme.filter(item => item !== preSaveMeme[index])]
+        }
+        
+    )}
+    //  saveMeme.filter((myMeme) => myMeme.props.fish !== props.fish));
+    // function deleteMe(props){
+    //     props.setSaveMeme((current) => current.filter((myMeme) => myMeme.props.fish !== props.fish));
+    // }
+    
+    // const deleteMe = (props) => {
+    //     props.setSaveMeme((current) => current.filter((myMeme) => myMeme.props.fish !== props.fish));
+    // }
+    
     return (
         <div >
-            {goAway ?
+            
                 <div>
                     {visible ?
                         <form onSubmit={handleSubmit}>
@@ -92,13 +110,10 @@ export default function Buttons(props){
 
                     <button id="editButt" onClick={editMe}>{visible ? "Close" : 'Edit'}</button>
             
-                    <button onClick={deleteMe}>DELETE</button>
+                    <button onClick={() => deleteMe(fish)}>DELETE</button>
                     
                 </div>
-                :
-                <>
-                </>
-            }
+              
         </div>
     )
 }

@@ -69,7 +69,10 @@ export default function Meme() {
     }
     //map over array before rendering buttons component
     
-    const savedMeme = saveMeme.map((uMeme, index) => (<Buttons  fish={index} id={index} data={uMeme} userState={saveMeme} setSaveMeme={setSaveMeme}/>))
+    
+    
+
+    const savedMeme = saveMeme.map((uMeme, index) => (<Buttons  key={index} fish={index} id={index} data={uMeme} saveMeme={saveMeme} setSaveMeme={setSaveMeme}/>))
 
     return (
         <main>
