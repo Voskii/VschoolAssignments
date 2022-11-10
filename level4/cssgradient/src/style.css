@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.chosenColor {
+   height: 450px;
+   width: 450px;
+}
+
+.coolBro {
+  width: 200px;
+  height: 120px;
+}
