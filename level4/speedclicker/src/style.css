@@ -1,4 +1,22 @@
+html, body {
+  background: black;
+  color: #00b800;
+  margin:0;
+  padding: 0;
+  padding-top: 10px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
 
+body {
+  font-weight: 400;
+}
+
+.button {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
 button {
   font-family: 'Press Start 2P', cursive;
   display: block;
