@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios";
+import { BeautyContext } from "./Context";
 
 export default function Beauty(props){
 
-    const {fish, data, id, saveBeauty, setSaveBeauty} = props
-    
     const [visible, setVisible] = useState(!true)
     
     const [beautyInputs, setBeautyInputs] = useState({
@@ -25,11 +24,8 @@ export default function Beauty(props){
                 else {
                     return item
                 }
-             
             })
-            
         })
-        
     }
 
     const editMe = () => {
@@ -54,10 +50,8 @@ export default function Beauty(props){
     const deleteMe = (index) => {
         console.log(props)
         console.log(typeof(props))
-        setSaveBeauty(preSaveBeauty => {
-            return [...preSaveBeauty.filter(item => item !== preSaveBeauty[index])]
+        return 
         }
-    )}
 
     return (
         <div >
@@ -66,14 +60,14 @@ export default function Beauty(props){
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
-                                name="topText"
-                                value={beautyInputs.topText}
+                                name="title"
+                                value={beautyInputs.title}
                                 onChange={handleChange}
                             />
                             <input
                                 type="text"
-                                name="bottomText"
-                                value={beautyInputs.bottomText}
+                                name="description"
+                                value={beautyInputs.description}
                                 onChange={handleChange}
                             />
                         </form>
@@ -85,7 +79,7 @@ export default function Beauty(props){
                     </div>
                     }
                     <button id="editButt" onClick={editMe}>{visible ? "Close" : 'Edit'}</button>
-                    <button onClick={() => deleteMe(fish)}>DELETE</button>
+                    <button onClick={() => deleteMe()}>DELETE</button>
                 </div>
         </div>
     )

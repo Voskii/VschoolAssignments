@@ -2,38 +2,19 @@
 import React, { useState, useEffect, useContext, createContext } from "react"
 import axios from "axios";
 import Beauty from "./Beauty";
+import { BeautyContext } from "./Context";
 
-export default function App() {
-
-  const BeautyContext = createContext()
-
-  function ThemeProvider(){
-
-    return (
-      <BeautyContext.Provider>
-
-      </BeautyContext.Provider>
-    )
-  }
-
-  const [allThings, setAllThings] = useState({
-    title: "",
-    imgURL: "",
-    description: ""
-  })
+export default function App(props) {
+  console.log(`props:`, props)
+  const context = useContext(BeautyContext)
+  console.log(context)
   
-  const [userThing, setUserThing] = useState({
-    title: "",
-    imgURL: "",
-    description: ""
-  })
   
   // this needs work obv lol
   function handleSubmit(e){
-    console.log('Mama had a baby, issa boy KEK')
+    console.log('submit has been smashed')
     e.preventDefault()
-    // take userThing state and post to api     
-        // setAllThings(prevAllThings => [...prevAllThings, meme])
+    
         
   }
   
@@ -48,13 +29,8 @@ export default function App() {
   }
 
   useEffect(() => {
-    console.log("useffect triggered")
+    console.log("useffect triggered bro")
     
-    axios.get('https://api.vschool.io/kyleshutt/thing')
-    
-    .then(res => {console.log(res.data) 
-        setAllThings(res.data)})
-    .catch(error => console.log(error))
     
   }, []);
 
@@ -90,11 +66,11 @@ export default function App() {
           />
         </div>
         <div className='bottom2'>
-          <button>UwU</button>
+          <button>Nice</button>
         </div>
       </form>
       <div>
-        {beauty}
+        <Beauty context={context}/>
       </div>
     </div>
   );
