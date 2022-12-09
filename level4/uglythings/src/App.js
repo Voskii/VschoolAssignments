@@ -6,34 +6,32 @@ import { BeautyContext } from "./Context";
 
 export default function App(props) {
   console.log(`props:`, props)
-  const context = useContext(BeautyContext)
-  console.log(context)
-  
+  const {context, userThing, setUserthing, allThings, setAllthings, getFunc, delFunc, putFunc, postFunc } = useContext(BeautyContext)
+  console.log(allThings)
   
   // this needs work obv lol
   function handleSubmit(e){
     console.log('submit has been smashed')
-    e.preventDefault()
-    
-        
+    postFunc()
   }
   
   function handleChange(event){
     console.log(`Give me fuel, give me fire, give me that which I desire.. HUAHHH`)
     const {name, value} = event.target
-        setUserThing(prevThing => ({
+        setUserthing(prevThing => ({
             ...prevThing,
             [name]: value
         }))
     console.log(userThing)
   }
-
+ 
   useEffect(() => {
-    console.log("useffect triggered bro")
     
+    getFunc()
     
   }, []);
 
+  console.log(allThings)
   //look up map syntax, don't have to render component 
   const beauty = allThings.map((thing, index) => (<Beauty key={index} data={thing}/>))
 
@@ -49,10 +47,11 @@ export default function App(props) {
             type="text" 
             onChange={handleChange}
           />
-          <input className='inputMe' 
-            name="imgURL" 
-            value={userThing.imgURL} 
-            placeholder="Img URL" 
+          <input 
+            className='inputMe' 
+            name="imgUrl" 
+            placeholder="Img URL"
+            value={userThing.imgUrl}
             type="text" 
             onChange={handleChange}
           />
@@ -70,7 +69,7 @@ export default function App(props) {
         </div>
       </form>
       <div>
-        <Beauty context={context}/>
+        {beauty}
       </div>
     </div>
   );

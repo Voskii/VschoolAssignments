@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import axios from "axios";
 import { BeautyContext } from "./Context";
 
 export default function Beauty(props){
-
+    
+    const {context, userThing, setUserthing, allThings, setAllthings, editInputs, setEditInputs, getFunc, delFunc, putFunc, postFunc } = useContext(BeautyContext)
     const [visible, setVisible] = useState(!true)
     
-    const [beautyInputs, setBeautyInputs] = useState({
-        topText: props.data.topText,
-        bottomText: props.data.bottomText
-    })
 
-    
 // donno if this fully worky lol id a lil sus
     const updateBeautyItem = (id, updatedItem) => {
-        
         console.log(`updateBeautyItem function has been called`,id)
         props.setSaveBeauty(prevsaveBeauty => {
            return prevsaveBeauty.map((item, index)=> {
@@ -34,7 +29,7 @@ export default function Beauty(props){
 
     const handleChange = (e) => {
         const {name, value} = e.target
-        setBeautyInputs(prevState=>{
+        setEditInputs(prevState=>{
             return ({
                 ...prevState,
                 [name]:value 
@@ -42,9 +37,9 @@ export default function Beauty(props){
         })
     }
     const handleSubmit = (e) => {
-        e.preventDefault()
+        
         console.log('form has been submitted')
-        updateBeautyItem(props.id, beautyInputs)
+        putFunc()
     }
 
     const deleteMe = (index) => {
@@ -54,32 +49,45 @@ export default function Beauty(props){
         }
 
     return (
-        <div >
+        <div>
                 <div>
                     {visible ?
                         <form onSubmit={handleSubmit}>
                             <input
+                                className='inputMe'
                                 type="text"
                                 name="title"
-                                value={beautyInputs.title}
+                                value={props.data.title}
                                 onChange={handleChange}
                             />
                             <input
+                                className='inputMe'
                                 type="text"
                                 name="description"
-                                value={beautyInputs.description}
+                                value={props.data.description}
                                 onChange={handleChange}
                             />
-                        </form>
+                            <input 
+                                className='inputMe' 
+                                name="imgUrl"
+                                value={props.data.imgUrl}
+                                type="text" 
+                                onChange={handleChange}
+                            />
+                            <button onClick={() => handleSubmit()}>I Want</button>  
+                      </form>
                     :
                     <div className="container">
-                    <img src={props.data.randomImage} className="bBeauty--image" alt=""/>
-                    <h2 className="bBeauty--text top">{beautyInputs.topText}</h2>
-                    <h2 className="bBeauty--text bottom">{beautyInputs.bottomText}</h2>
+                    <img src={props.data.imgUrl} className="bBeauty--image" alt=""/>
+                    <h2 className="bBeauty--text top">{props.data.title}</h2>
+                    <h2 className="bBeauty--text bottom">{props.data.description}</h2>
+                    
                     </div>
+                    
                     }
                     <button id="editButt" onClick={editMe}>{visible ? "Close" : 'Edit'}</button>
                     <button onClick={() => deleteMe()}>DELETE</button>
+                    
                 </div>
         </div>
     )
