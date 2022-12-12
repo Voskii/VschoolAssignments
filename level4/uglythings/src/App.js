@@ -11,12 +11,12 @@ export default function App(props) {
   
   // this needs work obv lol
   function handleSubmit(e){
+    e.preventDefault()
     console.log('submit has been smashed')
     postFunc()
   }
   
   function handleChange(event){
-    console.log(`Give me fuel, give me fire, give me that which I desire.. HUAHHH`)
     const {name, value} = event.target
         setUserthing(prevThing => ({
             ...prevThing,

@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif, 'Rubik Moonrocks', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -46,12 +46,16 @@ button {
   font-size: 2.5em;
 }
 
-.container{
+.container {
   margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 300px);
-  grid-template-rows: repeat(2, 20px);
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   gap: 10px;
   color: aqua;
 }
@@ -107,4 +111,10 @@ header {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.bBeautyTitle{
+  font-family: 'Rubik Moonrocks';
+  font-size: 3em;
+  
 }

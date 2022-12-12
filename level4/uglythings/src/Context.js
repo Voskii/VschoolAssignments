@@ -53,24 +53,34 @@ function BeautyProvider(props) {
             .catch(error => console.log(error))
     }
 
-    const putFunc = () => {
+    const putFunc = (index) => {
         console.log('PUT func triggered')
-        axios.put('https://api.vschool.io/kyleshutt/thing', fish)
-            .then(res => console.log(res.data)) 
+        axios.put(`https://api.vschool.io/kyleshutt/thing/${fish._id}`, index)
+            .then(res => {
+                console.log("put request:", res.data)
+                setAllthings(prevState => prevState.map(item => item._id === fish._id ? res.data : item))
+            }) 
             .catch(error => console.log(error))
     }
 
-    const delFunc = () => {
+    const delFunc = (index) => {
         console.log('DELETE func triggered')
-        axios.delete("https://api.vschool.io/kyleshutt/thing", delMe)
-            .then(res => console.log(res.data))
+        axios.delete(`https://api.vschool.io/kyleshutt/thing/${index}`)
+            .then(res => {
+                console.log(res.data)
+                setAllthings(prevState => prevState.filter(item => item._id !== index))
+            })
             .catch(error => console.log(error))
+        
     }
 
     const postFunc = () => {
         console.log("post function triggered")
         axios.post('https://api.vschool.io/kyleshutt/thing', addNew)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log("submitted  item: ",res.data)
+                setAllthings(prevState => [...prevState, res.data])
+            })
             .catch(error => console.log(error))
     }
 
