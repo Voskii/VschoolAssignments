@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+
+}
+
+button {
+  margin-top: 50px;
+  border-radius: 30%;
+  /* transition: all 3s ease; why this no worky :( */
+  border: 4px double aqua;
+  background-color: black;
+  color: violet;
+  font-family: 'Rubik Moonrocks', cursive;
+  height: 50px;
+  width: 100px;
+}
