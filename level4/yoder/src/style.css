@@ -27,3 +27,13 @@ button {
   height: 50px;
   width: 100px;
 }
+
+.hello {
+  justify-self: center;
+  justify-items: center;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  size: 1.4(em);
+}
