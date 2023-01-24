@@ -4,13 +4,14 @@ import Home from './components/Home.js'
 import You from './components/You'
 import Are from './components/Are'
 import img from './images/yoder.png'
+import ohWow from './images/ohwow.jpg'
 
 export default function App() {
 
   return (
     <Router>
-      <img src={img} alt="" className='hello'/>
-      <nav style={{margin:10}}>
+      <div className='navContainer'>
+        <nav style={{margin:10}}>
         <Link to="/" style={{ padding:5 }}>
           Home
         </Link>        
@@ -20,7 +21,9 @@ export default function App() {
         <Link to="/are" style={{ padding:5 }}>     
           Are
         </Link>
-      </nav>
+        </nav>
+        <img src={img} alt="" className="ohhiyoda" />
+      </div>
       <div>
         <Routes> 
           <Route path ="/" element={<Home />} />
@@ -29,9 +32,10 @@ export default function App() {
         </Routes>
       </div>
       <footer>
-        Footer - Let freedom rinnnnnnnng, in the walls of this cityyyyyyyyy, let the whole world know that today, is the the day of reckoningggg
-        
+        Footer - Disclaimer: Some characters might not be real
       </footer>
     </Router>
   );
 }
+
+{/* <img src={ohWow} alt="" className="topBackgrnd"/>  */}
