@@ -8,6 +8,7 @@ body {
 }
 
 button {
+  margin-bottom: 20px;
   border-radius: 30%;
   border: 4px double rgb(179, 179, 179);
   background-color: black;
@@ -17,6 +18,11 @@ button {
   font-family: 'Unbounded';
 }
 
+.youButt {
+  padding: 20px;
+  
+}
+
 .navContainer {
   display: flex;
   justify-content: center;
@@ -24,7 +30,7 @@ button {
 
 nav  {
   align-self: flex-end;
-  border-style:double;
+  
   border-color: rgba(179, 179, 179, 0.733);
   font-size: 3.5rem;
 }
@@ -51,6 +57,7 @@ nav a:hover {
 .json {
   border-radius: 5px;
   border: solid rgb(179, 179, 179);
+  box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px;
   width: 400px;
   height: 400px;
 }
@@ -66,4 +73,30 @@ footer {
   padding: 40px;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.youPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.youBackG {
+  
+}
+
+.youBackGG {
+  display: flex;
+  justify-content: space-between;
+  background-image: url('./images/ohnice.jpg');
+  background-repeat: no-repeat;
+  overflow: wrap;
+  height: 600px;
+  width: 1000px;
+  border-style: groove;
+  border-color: rgb(179, 179, 179);
+  box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px;
+  color: rgb(179, 179, 179);
+  font-family: 'Unbounded';
+  font-size: 2em;
 }

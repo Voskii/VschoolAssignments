@@ -12,15 +12,15 @@ export default function App() {
     <Router>
       <div className='navContainer'>
         <nav style={{margin:10}}>
-        <Link to="/" style={{ padding:5 }}>
-          Home
-        </Link>        
-        <Link to="/you" style={{ padding:5 }}>
-          You
-        </Link>                
-        <Link to="/are" style={{ padding:5 }}>     
-          Are
-        </Link>
+          <Link to="/" style={{ padding:5 }}>
+            Home
+          </Link>        
+          <Link to="/you" style={{ padding:5 }}>
+            You
+          </Link>                
+          <Link to="/are" style={{ padding:5 }}>     
+            Are
+          </Link>
         </nav>
         <img src={img} alt="" className="ohhiyoda" />
       </div>

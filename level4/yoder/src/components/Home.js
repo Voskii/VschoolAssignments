@@ -1,7 +1,8 @@
-import React from 'react' 
+import React , { useState }from 'react' 
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+    
     const navigate = useNavigate()
     return (
         <div className='homeContainer'>
@@ -29,17 +30,18 @@ export default function Home() {
                 onChange={''}
               /> ip add
             </div>
-            <div style={{padding: 20}}>
-              <button onClick={() => navigate(1)}>Forward</button>
-              <button onClick={() => navigate(-1)}>Back</button>
-            </div> 
+            <button>Submit</button>
             <input 
               className='json'
               name="title"  
               value={''} 
               type="text" 
               onChange={''}
-            /> JSON
+            /> This is your public data displayed in raw JSON
+            <div style={{padding: 20}}>
+              <button onClick={() => navigate(1)}>Forward</button>
+              <button onClick={() => navigate(-1)}>Back</button>
+            </div>
         </div>
       )
     }
