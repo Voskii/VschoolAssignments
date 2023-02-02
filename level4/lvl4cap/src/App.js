@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useContext} from "react"
 import { BrowserRouter as Router, Routes, Route , Link } from 'react-router-dom'
-import Cards from './components/Cards'
 import {PokeContext} from './components/Context'
 import Pokedex from './components/Pokedex'
-
+import War from './components/War'
+import Cards from './components/Cards'
+import img from './images/PokeAPII.png'
 export default function App(props) {
 
-  const {Pokedata, getFunc} = useContext(PokeContext)
+  // const {Pokedata, getFunc} = useContext(PokeContext)
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    getFunc()
+  //   getFunc()
     
-  }, []);
+  // }, []);
 
   return (
     <Router>
       <div className='navContainer'>
-        <nav style={{margin:10}}>
+        <nav style={{ margin:10 }}>
           <Link to="/" style={{ padding:5 }}>
             WAR
           </Link>        

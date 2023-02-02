@@ -8,6 +8,8 @@ body {
 }
 
 button {
+  justify-content: center;
+  align-self: center;
   margin-bottom: 20px;
   border-radius: 30%;
   border: 4px double rgb(179, 179, 179);
@@ -41,11 +43,41 @@ nav a {
 }
 
 nav a:hover {
-  color: rgb(81, 255, 0);
+  color: #ffcc03;
 }
 
 .navimg {
   position: relative;
+}
+
+.wars {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.who1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.who2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.poke1 {
+  height: 60%;
+  width: 90%;
+}
+
+.poke2 {
+  height: 60%;
+  width: 90%;
 }
 
 .inputMe {
