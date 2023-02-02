@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Unbounded';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: rgb(179, 179, 179);
+}
+
+button {
+  margin-bottom: 20px;
+  border-radius: 30%;
+  border: 4px double rgb(179, 179, 179);
+  background-color: black;
+  color: rgb(179, 179, 179);
+  height: 50px;
+  width: 100px;
+  font-family: 'Unbounded';
+}
+
+.youButt {
+  padding: 20px;
+  
+}
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+}
+
+nav  {
+  align-self: flex-end;
+  
+  border-color: rgba(179, 179, 179, 0.733);
+  font-size: 3.5rem;
+}
+
+nav a {
+  color: rgb(245, 245, 245);
+  text-decoration: none
+}
+
+nav a:hover {
+  color: rgb(81, 255, 0);
+}
+
+.navimg {
+  position: relative;
+}
+
+.inputMe {
+  border-radius: 5px;
+  border: solid rgb(179, 179, 179);
+  color: blueviolet; 
+}
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+footer {
+  padding: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.youPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
