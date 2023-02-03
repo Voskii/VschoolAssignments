@@ -3,7 +3,7 @@ body {
   font-family: 'Unbounded';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
+  background-color: black;
   color: rgb(179, 179, 179);
 }
 
@@ -22,7 +22,6 @@ button {
 
 .youButt {
   padding: 20px;
-  
 }
 
 .navContainer {
@@ -32,18 +31,27 @@ button {
 
 nav  {
   align-self: flex-end;
-  
-  border-color: rgba(179, 179, 179, 0.733);
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 nav a {
-  color: rgb(245, 245, 245);
-  text-decoration: none
+  color: #ffcb05;
+  text-decoration: none ;
+  transition-property: box-shadow;
+  transition-duration: 3s;
+  transition-delay: 1s;
 }
 
 nav a:hover {
-  color: #ffcc03;
+  width:150px;height:150px;
+  border: #2a75bb solid 3px;
+  background-color: #FFD700;
+  box-shadow: 10px -10px  #2a75bb;
+  -moz-box-shadow: 10px -10px  #2a75bb;
+  -webkit-box-shadow: 10px -10px  #2a75bb;
+  -o-box-shadow: 10px -10px  #2a75bb;
+  border-radius:100px;
+  color: #3c5aa6;
 }
 
 .navimg {

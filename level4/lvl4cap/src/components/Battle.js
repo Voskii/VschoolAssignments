@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import poke1 from '../images/Pikapoo.png'
 import poke2 from '../images/Grillizard.png'
 
-export default function War() {
+export default function Battle() {
     
     const navigate = useNavigate()
     return (
@@ -13,7 +13,7 @@ export default function War() {
                 <img src={poke1} className='poke1'/>
                 <h2>Chubby Zap Cat</h2>
             </div>
-            <button className=""></button>
+            <button className="">UwU</button>
             <div className="who2">
                 <h2>Fartrizard</h2>
                 <img src={poke2} className='poke2'/>

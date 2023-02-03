@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext} from "react"
 import { BrowserRouter as Router, Routes, Route , Link } from 'react-router-dom'
 import {PokeContext} from './components/Context'
 import Pokedex from './components/Pokedex'
-import War from './components/War'
+import Battle from './components/Battle'
 import Cards from './components/Cards'
 import img from './images/PokeAPII.png'
 export default function App(props) {
@@ -20,7 +20,7 @@ export default function App(props) {
       <div className='navContainer'>
         <nav style={{ margin:10 }}>
           <Link to="/" style={{ padding:5 }}>
-            WAR
+            Battle
           </Link>        
           <Link to="/cards" style={{ padding:5 }}>
             Cards
@@ -33,7 +33,7 @@ export default function App(props) {
       </div>
       <div>
         <Routes> 
-          <Route path ="/" element={<War />} />
+          <Route path ="/" element={<Battle />} />
           <Route path ="/cards" element={<Cards />} />
           <Route path ="/pokedex" element={<Pokedex />} />
         </Routes>
