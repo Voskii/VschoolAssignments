@@ -6,6 +6,9 @@ import poke2 from '../images/Grillizard.png'
 export default function Battle() {
     
     const navigate = useNavigate()
+
+    
+
     return (
         <div className="wars">
             <div className="who1">
@@ -13,7 +16,7 @@ export default function Battle() {
                 <img src={poke1} className='poke1'/>
                 <h2>Chubby Zap Cat</h2>
             </div>
-            <button className="">UwU</button>
+               <button className="battlebutton">Fight</button> 
             <div className="who2">
                 <h2>Fartrizard</h2>
                 <img src={poke2} className='poke2'/>
