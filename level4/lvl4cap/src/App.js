@@ -1,36 +1,25 @@
 import React, { useState, useEffect, useContext} from "react"
 import { BrowserRouter as Router, Routes, Route , Link } from 'react-router-dom'
-import {PokeContext} from './components/Context'
+import { PokeContext } from './components/Context'
 import Pokedexx from './components/Pokedexx'
 import Battle from './components/Battle'
 import Cards from './components/Cards'
 import img from './images/PokeAPII.png'
-import Pokedex from 'pokedex-promise-v2';
 
 
 export default function App(props) {
-
-  // const {Pokedata, pList} = useContext(PokeContext)
-
-  const P = new Pokedex();
-  const [fish, setFish] = useState([])
-  // const interval = {
-  //   limit: 5,
-  //   offset: 0
-  // }
-
-  useEffect(() => {
-    P.getPokemonsList()
-      .then((res) => {
-        console.log(res)
-        setFish(res)
-      })
-    }, [])
-    const max = fish.count;
-    console.log(max)
-  // const num = fish.results[Math.floor(Math.random() * (max - 0 + 1) + 0)] RANDOM PKMN LOGIC
-  // console.log(num)
+  // console.log(`props:`, props)
+  const {pokeData, pList, cherryPick, fighter1, fighter2, whosThatPokemon} = useContext(PokeContext)
   
+  
+  useEffect(() => {
+    
+    pList()
+    whosThatPokemon()
+
+  }, [])
+  
+  console.log(pokeData, fighter1, fighter2)
 
   return (
     <Router>
