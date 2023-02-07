@@ -1,76 +1,99 @@
 import React, {createContext, useState} from "react";
 import axios from "axios";
-import Pokedex from 'pokedex-promise-v2';
 
 const PokeContext = createContext()
 
 function PokeProvider(props) {
-  const P = new Pokedex();
   const [pokeData, setPokedata] = useState([{}])
   const [fighter1, setFighter1] = useState({
     name: "",
-    url: ""
+    hp: "",
+    img: ""
 })
   const [fighter2, setFighter2] = useState({
     name: "",
-    url: ""
+    hp: "",
+    img: ""
   })
-  
+  const [whoDat1, setWhoDat1] = useState('')
+  const [whoDat2, setWhoDat2] = useState('')
+   
   const pList = () => {
-    console.log(`PLIST HAS BEEN CALLED`)
-    P.getPokemonsList()
-      .then((res) => {console.log(res.results)
-        setPokedata(res.results)
-        setFighter1(res.results[Math.floor(Math.random() * res.results.length)])
-        setFighter2(res.results[Math.floor(Math.random() * res.results.length)])
+      console.log(`PLIST HAS BEEN CALLED`)
+      axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1279')
+            .then(res => {
+              console.log(res.data) 
+              setPokedata(res.data.results)
+            })
+            .catch(error => console.log(error))     
+    }
+  
+  // const cherryPick = (f1, f2) => {
+  //   console.log(`CHERRY PICK called`)
+  //   const num1 = Math.floor(Math.random() * pokeData.length)
+  //   const num2 = Math.floor(Math.random() * pokeData.length)
+
+  //   setFighter1({
+  //     name: pokeData[num1].name,
+  //     url: pokeData[num1].url,
+  //     id: num1 + 1
+  //   })
+  //   setFighter2({
+  //     name: pokeData[num2].name,
+  //     url: pokeData[num2].url,
+  //     id: num2 + 1
+  //   })
+  //   console.log(fighter1.id)
+  //   whosThatPokemon(num1)
+  //   whosThatPokemon(num2)
+  // }
+  // THE ABOVE WAS WORKING BUT THE API CHANGES THE NUMBERING ORDER OF PKMN AFTER 1007ISH....LOLOLOLOL
+  // request forwarder code const url = `url=https://pokeapi.co/api/v2/pokemon/${poke1Url}`
+    // axios.get(`https://request-forwarder.onrender.com?${url}`)
+
+  const cherryPick = () => {
+    const poke1 = Math.floor(Math.random() * pokeData.length-1)
+    const poke2 = Math.floor(Math.random() * pokeData.length-1)
+    const poke1Url = pokeData[poke1].url
+    const poke2Url = pokeData[poke2].url
+    console.log(poke1Url)
+    console.log(poke2Url)
+
+    
+    axios.get(poke1Url)
+      .then(res => {console.log(res.data) 
+        setFighter1({
+          name: res.data.species.name,
+          hp: res.data.stats[0].base_stat,
+          img: res.data.sprites.front_default
+        })  
       })
       .catch(error => console.log(error))
+
+      axios.get(poke2Url)
+      .then(res => {console.log(res.data) 
+        setFighter2({
+          name: res.data.species.name,
+          hp: res.data.stats[0].base_stat,
+          img: res.data.sprites.front_default
+        })  
+      })
+      .catch(error => console.log(error))
+
+
     
   }
 
-  const that1 = fighter1.name
-  const that2 = fighter2.name
-  const string1 = that1.toString()
-  const string2 = that2.toString()
-
-  const whosThatPokemon = () => {
-    P.getPokemonByName([`${that1}`, `${that2}`])
-    .then((response) => {console.log(response)
-
-  })
-  .catch((error) => {
-    console.log('There was an ERROR: ', error);
-  });
+  const whosThatPokemon = (num) => {
+    console.log(`who's that pokemon!`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
+            .then(res => {console.log(res.data) 
+                
+              })
+            .catch(error => console.log(error))
   }
-  
-  
-// console.log(f1, f2)
-  
-  const cherryPick = () => {
-    console.log(`CHERRY PICK called`)
-    const f1 = pokeData[Math.floor(Math.random() * pokeData.length)]
-    const f2 = pokeData[Math.floor(Math.random() * pokeData.length)]
-
-    setFighter1({
-      name: f1.name,
-      url: f1.url
-    })
-    setFighter2({
-      name: f2.name,
-      url: f2.url
-    })
-  }
-  
-   
   
   console.log(`state:`, pokeData, fighter1, fighter2)
-  // const max = pokeData.count;
-  // console.log(max)
-  // const num = pokeData.results
-  // console.log(num)
-  // const num = pokeData.results[Math.floor(Math.random() * (max - 0 + 1) + 0)]
-  
-    
 
     return (
         <PokeContext.Provider value={{

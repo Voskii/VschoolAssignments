@@ -26,14 +26,14 @@ export default function Battle() {
         <div className="wars">
             <div className="who1">
                 <h2>{fighter1.name}</h2>
-                <img src={poke1} className='poke1'/>
-                <h2>Chubby Zap Cat</h2>
+                <img src={fighter1.img} className='poke1'/>
+                <h2>HP: {fighter1.hp}</h2>
             </div>
-               <button className="battlebutton">Fight</button> 
+               <button className="battlebutton" onClick={() => {cherryPick(fighter1, fighter2)}}>Fight</button> 
             <div className="who2">
                 <h2>{fighter2.name}</h2>
-                <img src={poke2} className='poke2'/>
-                <h2>Jurassic Grill</h2>
+                <img src={fighter2.img} className='poke2'/>
+                <h2>HP: {fighter2.hp}</h2>
             </div>
         </div>
     )

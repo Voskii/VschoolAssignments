@@ -15,8 +15,8 @@ export default function App(props) {
   useEffect(() => {
     
     pList()
-    whosThatPokemon()
-
+    
+    
   }, [])
   
   console.log(pokeData, fighter1, fighter2)
@@ -45,7 +45,7 @@ export default function App(props) {
         </Routes>
       </div>
       <footer>
-        These pokemon die in real life :o
+        GOOD LUCK
       </footer>
     </Router>
   );
