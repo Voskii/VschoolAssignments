@@ -1,23 +1,32 @@
 import React, {createContext, useState} from "react";
 import axios from "axios";
+import { set } from "mongoose";
 
 const PokeContext = createContext()
 
 function PokeProvider(props) {
   const [pokeData, setPokedata] = useState([{}])
   const [fighter1, setFighter1] = useState({
+    id: "",
     name: "",
     hp: "",
-    img: ""
+    img: "",
+    imgB: "",
+    types: [],
+    attacks: []
 })
   const [fighter2, setFighter2] = useState({
+    id: "",
     name: "",
     hp: "",
-    img: ""
+    img: "",
+    imgB: "",
+    types: [],
+    attacks: []
   })
-  const [whoDat1, setWhoDat1] = useState('')
-  const [whoDat2, setWhoDat2] = useState('')
-   
+  
+  const [inventory, setInventory] = useState([])
+
   const pList = () => {
       console.log(`PLIST HAS BEEN CALLED`)
       axios.get('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1279')
@@ -27,29 +36,6 @@ function PokeProvider(props) {
             })
             .catch(error => console.log(error))     
     }
-  
-  // const cherryPick = (f1, f2) => {
-  //   console.log(`CHERRY PICK called`)
-  //   const num1 = Math.floor(Math.random() * pokeData.length)
-  //   const num2 = Math.floor(Math.random() * pokeData.length)
-
-  //   setFighter1({
-  //     name: pokeData[num1].name,
-  //     url: pokeData[num1].url,
-  //     id: num1 + 1
-  //   })
-  //   setFighter2({
-  //     name: pokeData[num2].name,
-  //     url: pokeData[num2].url,
-  //     id: num2 + 1
-  //   })
-  //   console.log(fighter1.id)
-  //   whosThatPokemon(num1)
-  //   whosThatPokemon(num2)
-  // }
-  // THE ABOVE WAS WORKING BUT THE API CHANGES THE NUMBERING ORDER OF PKMN AFTER 1007ISH....LOLOLOLOL
-  // request forwarder code const url = `url=https://pokeapi.co/api/v2/pokemon/${poke1Url}`
-    // axios.get(`https://request-forwarder.onrender.com?${url}`)
 
   const cherryPick = () => {
     const poke1 = Math.floor(Math.random() * pokeData.length-1)
@@ -58,42 +44,79 @@ function PokeProvider(props) {
     const poke2Url = pokeData[poke2].url
     console.log(poke1Url)
     console.log(poke2Url)
-
     
     axios.get(poke1Url)
       .then(res => {console.log(res.data) 
         setFighter1({
+          id: res.data.id,
           name: res.data.species.name,
           hp: res.data.stats[0].base_stat,
-          img: res.data.sprites.front_default
-        })  
+          img: res.data.sprites.other.home.front_default,
+          imgB: res.data.sprites.front_default,
+          types: res.data.types,
+          attacks: res.data.abilities
+        })
       })
       .catch(error => console.log(error))
 
       axios.get(poke2Url)
       .then(res => {console.log(res.data) 
         setFighter2({
+          id: res.data.id,
           name: res.data.species.name,
           hp: res.data.stats[0].base_stat,
-          img: res.data.sprites.front_default
+          img: res.data.sprites.other.home.front_default,
+          imgB: res.data.sprites.front_default,
+          types: res.data.types,
+          attacks: res.data.abilities
         })  
       })
       .catch(error => console.log(error))
-
-
-    
   }
 
+  const fight = () => {
+    console.log('INSIDE FIGHT FUNCTION')
+    // const {name, value} = e.target
+    const chance = Math.random()
+      if(chance > .5){
+        setInventory(prev => ([{
+          ...prev,
+          id: fighter1.id,
+          name: fighter1.name,
+          hp: fighter1.hp,
+          img: fighter1.img,
+          imgB: fighter1.imgB,
+          types: fighter1.types,
+          attacks: fighter1.attacks
+        }]))
+      } else {
+        setInventory(prev => ([
+          ...prev,
+          {
+            id: fighter2.id,
+            name: fighter2.name,
+            hp: fighter2.hp,
+            img: fighter2.img,
+            imgB: fighter2.imgB,
+            types: fighter2.types,
+            attacks: fighter2.attacks
+          }
+        ]))
+      }
+    cherryPick()
+  }
+
+//    POKEDEX
   const whosThatPokemon = (num) => {
     console.log(`who's that pokemon!`)
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
-            .then(res => {console.log(res.data) 
+    // axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
+    //         .then(res => {console.log(res.data) 
                 
-              })
-            .catch(error => console.log(error))
+    //           })
+    //         .catch(error => console.log(error))
   }
   
-  console.log(`state:`, pokeData, fighter1, fighter2)
+  console.log(`state:`, pokeData, fighter1, fighter2, inventory)
 
     return (
         <PokeContext.Provider value={{
@@ -102,7 +125,9 @@ function PokeProvider(props) {
             cherryPick,
             fighter1,
             fighter2,
-            whosThatPokemon
+            whosThatPokemon,
+            fight,
+            inventory
         }}>
             {props.children}
         </PokeContext.Provider>

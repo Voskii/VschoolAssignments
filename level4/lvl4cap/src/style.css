@@ -7,7 +7,12 @@ body {
   color: rgb(179, 179, 179);
 }
 
-.battlebutton {
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.battleButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,8 +32,8 @@ body {
 }
 
 .battlebutton:hover {
-  height: 200px;
-  width: 260px;
+  height: 120px;
+  width: 170px;
   font-size: 1.5rem;
 }
 
@@ -95,16 +100,32 @@ nav a:hover {
 
 .poke1 {
   align-self: center;
-  height: 60%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
+}
+
+.poke11 {
+  align-self: center;
+  height: 180px;
+  width: 220px;
 }
 
 .poke2 {
   align-self: center;
-  height: 60%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
 }
 
+.poke22 {
+  align-self: center;
+  height: 180px;
+  width: 220px;
+}
+
+.inventory {
+  display: flex;
+  justify-content: center;
+}
 .inputMe {
   border-radius: 5px;
   border: solid rgb(179, 179, 179);
