@@ -6,7 +6,7 @@ export default function Pokedex() {
     const navigate = useNavigate()
     return (
         <div>
-            POKEDEX
+            yayayayaya
         </div>
     )
 }

@@ -56,21 +56,14 @@ nav {
 nav a {
   color: #ffcb05;
   text-decoration: none ;
-  transition-property: box-shadow;
-  transition-duration: 3s;
+  transition-property: border color;
+  transition-duration: 1s;
 }
 
 nav a:hover {
-  width: 150px;
-  height: 150px;
-  border: #2a75bb solid 3px;
+  border: #2a75bb solid;
   background-color: #FFD700;
-  box-shadow: 10px -10px  #2a75bb;
-  -moz-box-shadow: 10px -10px  #2a75bb;
-  -webkit-box-shadow: 10px -10px  #2a75bb;
-  -o-box-shadow: 10px -10px  #2a75bb;
-  border-radius:100px;
-  color: #3c5aa6;
+  color: #2a75bb;
 }
 
 .navimg {
@@ -106,8 +99,8 @@ nav a:hover {
 
 .poke11 {
   align-self: center;
-  height: 180px;
-  width: 220px;
+  height: 330px;
+  width: 370px;
 }
 
 .poke2 {
@@ -126,11 +119,13 @@ nav a:hover {
   display: flex;
   justify-content: center;
 }
+
 .inputMe {
   border-radius: 5px;
   border: solid rgb(179, 179, 179);
   color: blueviolet; 
 }
+
 .homeContainer {
   display: flex;
   flex-direction: column;

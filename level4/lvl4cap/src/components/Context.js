@@ -79,8 +79,9 @@ function PokeProvider(props) {
     // const {name, value} = e.target
     const chance = Math.random()
       if(chance > .5){
-        setInventory(prev => ([{
+        setInventory(prev => ([
           ...prev,
+          {
           id: fighter1.id,
           name: fighter1.name,
           hp: fighter1.hp,
@@ -88,7 +89,8 @@ function PokeProvider(props) {
           imgB: fighter1.imgB,
           types: fighter1.types,
           attacks: fighter1.attacks
-        }]))
+          }
+        ]))
       } else {
         setInventory(prev => ([
           ...prev,

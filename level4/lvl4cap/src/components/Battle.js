@@ -15,7 +15,6 @@ export default function Battle() {
             ?
             <div className="wars">
                 <div className="who1">
-                    
                     <h2>{fighter1.name}</h2>
                     <img src={fighter1.img
                         ?
@@ -74,13 +73,18 @@ export default function Battle() {
                 </div>
                 
             </div>
-            
             :
             <button className="battleButton" onClick={() => {cherryPick()}}>GET POKEMON</button>
             }
-            
             </div>
             <div className="inventory">
+                <h3>{fighter1.id
+                ?
+                'Bag:'
+                :
+                ''
+                }
+                </h3>
                 <ul>
                 {inventory
                 ?
@@ -91,25 +95,7 @@ export default function Battle() {
                 ""
                 }
                 </ul>
-            </div>
+                </div>
         </div>
     )
 }
-/* <img src={fighter1.img} className='poke1' alt=''/>
-                    {fighter1 && fighter1.img
-                    ?
-                    fighter1.img
-                    :
-                    fighter1.imgB} */
-
-//fighter1.types[0].type.name
-
-// {
-//     currentMovieDetail && currentMovieDetail.genres
-//     ?
-//     currentMovieDetail.genres.map(genre => (
-//         <><span className="movie__genre" id={genre.id}>{genre.name}</span></>
-//     ))
-//     :
-//     ""
-// }
