@@ -24,7 +24,7 @@ export default function App(props) {
   return (
     <Router>
       <div className='navContainer'>
-        <nav style={{ margin:10 }}>
+        <nav>
           <Link to="/" style={{ padding:5 }}>
             Battle
           </Link>        

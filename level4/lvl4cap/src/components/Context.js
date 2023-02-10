@@ -49,7 +49,7 @@ function PokeProvider(props) {
       .then(res => {console.log(res.data) 
         setFighter1({
           id: res.data.id,
-          name: res.data.species.name,
+          name: res.data.species.name.charAt(0).toUpperCase() + res.data.species.name.slice(1),
           hp: res.data.stats[0].base_stat,
           img: res.data.sprites.other.home.front_default,
           imgB: res.data.sprites.front_default,
@@ -63,7 +63,7 @@ function PokeProvider(props) {
       .then(res => {console.log(res.data) 
         setFighter2({
           id: res.data.id,
-          name: res.data.species.name,
+          name: res.data.species.name.charAt(0).toUpperCase() + res.data.species.name.slice(1),
           hp: res.data.stats[0].base_stat,
           img: res.data.sprites.other.home.front_default,
           imgB: res.data.sprites.front_default,

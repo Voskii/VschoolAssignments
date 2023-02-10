@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Unbounded';
+  font-family: 'Pokemon hollow';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -23,18 +23,30 @@ body {
   background-repeat: no-repeat;
   background-color: black;
   color: #FFD700;
-  font-family: 'Unbounded';
-  font-size: 1rem;
-  height: 100px;
-  width: 150px;
+  font-family: 'Pokemon solid';
+  font-size: 1.6rem;
+  height: 125px;
+  width: 185px;
   transition-property: height, width, font-size;
   transition-duration: 2s;
 }
 
+.pokeTitle {
+  font-family: 'Pokemon solid';
+  color: #FFD700;
+  font-size: 2rem;
+  margin: 0px;
+}
+
+.pokeInfo {
+  font-family: 'Pokemon hollow';
+  margin: 0px;
+}
+
 .battlebutton:hover {
-  height: 120px;
-  width: 170px;
-  font-size: 1.5rem;
+  height: 150px;
+  width: 200px;
+  font-size: 1.8rem;
 }
 
 .youButt {
@@ -54,6 +66,9 @@ nav {
 }
 
 nav a {
+  margin: 0px 8px;
+  margin-top: 0px;
+  padding: 0px;
   color: #ffcb05;
   text-decoration: none ;
   transition-property: border color;
@@ -64,6 +79,7 @@ nav a:hover {
   border: #2a75bb solid;
   background-color: #FFD700;
   color: #2a75bb;
+  font-family: 'Pokemon solid';
 }
 
 .navimg {
@@ -111,13 +127,17 @@ nav a:hover {
 
 .poke22 {
   align-self: center;
-  height: 180px;
-  width: 220px;
+  height: 330px;
+  width: 370px;
 }
 
 .inventory {
   display: flex;
   justify-content: center;
+  align-items: center;
+  font-family: 'Pokemon hollow';
+  color: #FFD700;
+  font-size: 1.6rem;
 }
 
 .inputMe {
