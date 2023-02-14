@@ -7,6 +7,11 @@ body {
   color: rgb(179, 179, 179);
 }
 
+.app{
+  display: flex;
+  justify-content: center;
+}
+
 .page {
   display: flex;
   justify-content: center;

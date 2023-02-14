@@ -13,7 +13,11 @@ function PokeProvider(props) {
     img: "",
     imgB: "",
     types: [],
-    attacks: []
+    attacks: [],
+    stats: [],
+    species: "",
+    height: "",
+    weight: ""
 })
   const [fighter2, setFighter2] = useState({
     id: "",
@@ -22,7 +26,11 @@ function PokeProvider(props) {
     img: "",
     imgB: "",
     types: [],
-    attacks: []
+    attacks: [],
+    stats: [],
+    species: "",
+    height: "",
+    weight: ""
   })
   
   const [inventory, setInventory] = useState([])
@@ -54,7 +62,11 @@ function PokeProvider(props) {
           img: res.data.sprites.other.home.front_default,
           imgB: res.data.sprites.front_default,
           types: res.data.types,
-          attacks: res.data.abilities
+          attacks: res.data.abilities,
+          stats: res.data.stats,
+          species: res.data.species.url,
+          height: res.data.height,
+          weight: res.data.weight
         })
       })
       .catch(error => console.log(error))
@@ -68,7 +80,11 @@ function PokeProvider(props) {
           img: res.data.sprites.other.home.front_default,
           imgB: res.data.sprites.front_default,
           types: res.data.types,
-          attacks: res.data.abilities
+          attacks: res.data.abilities,
+          stats: res.data.stats,
+          species: res.data.species.url,
+          height: res.data.height,
+          weight: res.data.weight
         })  
       })
       .catch(error => console.log(error))
@@ -88,7 +104,11 @@ function PokeProvider(props) {
           img: fighter1.img,
           imgB: fighter1.imgB,
           types: fighter1.types,
-          attacks: fighter1.attacks
+          attacks: fighter1.attacks,
+          stats: fighter1.stats,
+          species: fighter1.species,
+          height: fighter1.height,
+          weight: fighter1.weight
           }
         ]))
       } else {
@@ -101,7 +121,11 @@ function PokeProvider(props) {
             img: fighter2.img,
             imgB: fighter2.imgB,
             types: fighter2.types,
-            attacks: fighter2.attacks
+            attacks: fighter2.attacks,
+            stats: fighter2.stats,
+            species: fighter2.species,
+            height: fighter2.height,
+            weight: fighter2.weight
           }
         ]))
       }
