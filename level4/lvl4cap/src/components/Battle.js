@@ -59,7 +59,7 @@ export default function Battle() {
                         {fighter2 && fighter2.types 
                         ? 
                         fighter2.types.map(type => (
-                            <><h2 className="pokeInfo">{type.type.name}</h2></>
+                            <><h2 className="pokeInfo" key={''}>{type.type.name}</h2></>
                             ))
                             :
                             ''

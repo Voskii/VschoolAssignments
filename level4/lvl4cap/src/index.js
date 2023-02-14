@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './style.css';
 import './dd.css';
 import './card.css';
+import './type.css';
 import App from './App';
 import { PokeProvider } from './components/Context';
 
