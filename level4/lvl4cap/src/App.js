@@ -19,7 +19,7 @@ export default function App(props) {
     
   }, [])
   
-  console.log(pokeData, fighter1, fighter2)
+  // console.log(pokeData, fighter1, fighter2)
 
   return (
     <Router>

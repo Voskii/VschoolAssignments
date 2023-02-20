@@ -32,7 +32,7 @@ function PokeProvider(props) {
     height: "",
     weight: ""
   })
-  
+  const [desc, setDesc] = useState([])
   const [inventory, setInventory] = useState([])
 
   const pList = () => {
@@ -67,7 +67,8 @@ function PokeProvider(props) {
           stats: res.data.stats,
           species: res.data.species.url,
           height: res.data.height,
-          weight: res.data.weight
+          weight: res.data.weight,
+          fighter: '1'
         })
       })
       .catch(error => console.log(error))
@@ -86,67 +87,154 @@ function PokeProvider(props) {
           stats: res.data.stats,
           species: res.data.species.url,
           height: res.data.height,
-          weight: res.data.weight
+          weight: res.data.weight,
+          fighter: '2'
         })  
       })
       .catch(error => console.log(error))
+
+      // axios.get(fighter1.species)
+      // .then(res => setDesc(res.data))
+          
+      // // axios.get(fighter1.species)
+      // //   .then(res => {setFighter1(prev => [{
+      // //     ...prev,
+      // //     species: res.data.flavor_text_entries[0].flavor_text
+      // // }])})
+      //   .catch(error => console.log(error))
+
+      // axios.get(fighter2.species)
+      //   .then(res => setDesc(res.data))
+          
+      //   .catch(error => console.log(error))
   }
 
   const fight = () => {
     console.log('INSIDE FIGHT FUNCTION')
     // const {name, value} = e.target
+
     const chance = Math.random()
+    console.log(`SPECIES GET CALL: `, fighter1.species, fighter2.species)
+    
       if(chance > .5){
-        setInventory(prev => ([
-          ...prev,
-          {
-          id: fighter1.id,
-          name: fighter1.name,
-          hp: fighter1.hp,
-          attack: fighter1.attack,
-          img: fighter1.img,
-          imgB: fighter1.imgB,
-          types: fighter1.types,
-          attacks: fighter1.attacks,
-          stats: fighter1.stats,
-          species: fighter1.species,
-          height: fighter1.height,
-          weight: fighter1.weight
-          }
-        ]))
+        // species: desc.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+        //res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+        console.log(`set fighter 1`)
+        axios.get(fighter1.species)
+          .then(res => setInventory(prev => ([
+            ...prev,
+            {
+              id: fighter1.id,
+              name: fighter1.name,
+              hp: fighter1.hp,
+              attack: fighter1.attack,
+              img: fighter1.img,
+              imgB: fighter1.imgB,
+              types: fighter1.types,
+              attacks: fighter1.attacks,
+              stats: fighter1.stats,
+              height: fighter1.height,
+              weight: fighter1.weight,
+              fighter: fighter1.fighter,
+              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+            }
+          ])))
+          .catch(error => console.log(error))
+
+        // setInventory(prev => ([
+        //       ...prev,
+        //       {
+        //       id: fighter1.id,
+        //       name: fighter1.name,
+        //       hp: fighter1.hp,
+        //       attack: fighter1.attack,
+        //       img: fighter1.img,
+        //       imgB: fighter1.imgB,
+        //       types: fighter1.types,
+        //       attacks: fighter1.attacks,
+        //       stats: fighter1.stats,
+        //       height: fighter1.height,
+        //       weight: fighter1.weight,
+        //       species: fighter1.species,
+        //       fighter: fighter1.fighter
+        //       }
+        //     ]))
+            console.log(`inside set inventory1:`, inventory)
       } else {
-        setInventory(prev => ([
-          ...prev,
-          {
-            id: fighter2.id,
-            name: fighter2.name,
-            hp: fighter2.hp,
-            attack: fighter2.attack,
-            img: fighter2.img,
-            imgB: fighter2.imgB,
-            types: fighter2.types,
-            attacks: fighter2.attacks,
-            stats: fighter2.stats,
-            species: fighter2.species,
-            height: fighter2.height,
-            weight: fighter2.weight
-          }
-        ]))
+        axios.get(fighter2.species)
+          .then(res => setInventory(prev => ([
+            ...prev,
+            {
+              id: fighter2.id,
+              name: fighter2.name,
+              hp: fighter2.hp,
+              attack: fighter2.attack,
+              img: fighter2.img,
+              imgB: fighter2.imgB,
+              types: fighter2.types,
+              attacks: fighter2.attacks,
+              stats: fighter2.stats,
+              height: fighter2.height,
+              weight: fighter2.weight,
+              fighter: fighter2.fighter,
+              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+            }
+          ])))
+          .catch(error => console.log(error))
+        // console.log(`set fighter 2`)
+        // axios.get(fighter2.species)
+        //   .then(res => setFighter2(prev => ({
+        //     ...prev,
+        //       species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+        // })))
+        //   .catch(error => console.log(error))
+        
+        // setInventory(prev => ([
+        //   ...prev,
+        //   {
+        //     id: fighter2.id,
+        //     name: fighter2.name,
+        //     hp: fighter2.hp,
+        //     attack: fighter2.attack,
+        //     img: fighter2.img,
+        //     imgB: fighter2.imgB,
+        //     types: fighter2.types,
+        //     attacks: fighter2.attacks,
+        //     stats: fighter2.stats,
+        //     height: fighter2.height,
+        //     weight: fighter2.weight,
+        //     species: fighter2.species,
+        //     fighter: fighter2.fighter
+        //   }
+        // ]))
+        // console.log(`inside set inventory2:`, inventory)
       }
+      console.log(`inside set inventory ALL:`, inventory)
     cherryPick()
   }
 
 //    POKEDEX
-  const whosThatPokemon = (num) => {
-    console.log(`who's that pokemon!`)
-    // axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`)
-    //         .then(res => {console.log(res.data) 
-                
-    //           })
-    //         .catch(error => console.log(error))
-  }
+//   const whosThatPokemon = () => {
+    
+//     console.log(`who's that pokemon!`)
+//     // axios.get(inventory[0].species)
+//     //   .then(res => console.log(res.data)) somehow working... lol
+          
+//     //   .catch(error => console.log(error))
+    
+//     console.log(`flavor text find: `, desc)
+// // desc.find(index => index.language.name === 'en').flavor_text
+//           //   .then(res => setInventory(prev => {
+//           //     return ({
+//           //         ...prev,
+//           //         species: res.data.flavor_text_entries[7].flavor_text
+//           //     })
+//           // }))
+              
+//           // .catch(error => console.log(error))
+//           }
   
-  console.log(`state:`, pokeData, fighter1, fighter2, inventory)
+  console.log(`state:`, pokeData, inventory, desc)
 
     return (
         <PokeContext.Provider value={{
@@ -155,7 +243,7 @@ function PokeProvider(props) {
             cherryPick,
             fighter1,
             fighter2,
-            whosThatPokemon,
+            
             fight,
             inventory
         }}>

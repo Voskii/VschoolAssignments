@@ -14,22 +14,23 @@ export default function Cards() {
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
     const [chosen, setChosen] = useState([])
-
     const [showCard, setShowCard] = useState(false)
+    console.log(`card component inventory:`, inventory)
+    
     function popPoke(e){
         console.log('User Selected a Pokemon')
         const userSelect = e.target.innerText
         setChosen(inventory.find(index => index.name === userSelect)) 
         console.log(`chosen:`, chosen)
-        axios.get(chosen.species)
-            .then(res => setChosen(prev => {
-                return ({
-                    ...prev,
-                    species: res.data.flavor_text_entries[7].flavor_text
-                })
-            }))
+        // axios.get(chosen.species)
+        //     .then(res => setChosen(prev => {
+        //         return ({
+        //             ...prev,
+        //             species: res.data.flavor_text_entries[7].flavor_text
+        //         })
+        //     }))
                 
-            .catch(error => console.log(error))
+        //     .catch(error => console.log(error))
     }
 
     return (
@@ -41,7 +42,7 @@ export default function Cards() {
 
             <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
                 <ul>
-                    {inventory.map(item => <><li onClick={(e) => {popPoke(e)}}className='dropdownItem' key={''}>{item.name}</li></>)}
+                    {inventory.map(item => <><li onClick={(e) => {popPoke(e)}} className='dropdownItem' key={''}>{item.name}</li></>)}
                 </ul>
             </div>
             </div>

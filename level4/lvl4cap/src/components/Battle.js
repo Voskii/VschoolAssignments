@@ -92,7 +92,7 @@ export default function Battle() {
                 {inventory
                 ?
                 inventory.map(poke => (
-                    <><li>{poke.name}</li></>
+                    <li>{poke.name}</li>
                 ))
                 :
                 ""
