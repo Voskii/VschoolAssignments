@@ -1,0 +1,72 @@
+.toggle-button {
+    width: 58px;
+    height: 34px;
+    position: relative;
+    display: inline-flex;
+}
+.toggle-button input {
+width: 0;
+height: 0;
+}
+.toggle-btn {
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+cursor: pointer;
+transition: 0.6s;
+-webkit-transition: 0.6s;
+-moz-transition: 0.6s;
+-ms-transition: 0.6s;
+-o-transition: 0.6s;
+position: absolute;
+background-color: rgb(245, 244, 244);
+border-radius: 32px;
+-webkit-border-radius: 32px;
+-moz-border-radius: 32px;
+-ms-border-radius: 32px;
+-o-border-radius: 32px;
+}
+.toggle-btn:before {
+position: absolute;
+content: "";
+height: 25px;
+width: 24px;
+left: 6px;
+bottom: 6px;
+background-color: #fff;
+transition: 0.6s;
+-webkit-transition: 0.6s;
+-moz-transition: 0.6s;
+-ms-transition: 0.6s;
+-o-transition: 0.6s;
+border-radius: 32px;
+-webkit-border-radius: 32px;
+-moz-border-radius: 32px;
+-ms-border-radius: 32px;
+-o-border-radius: 32px;
+}
+.toggle-button input:checked + .toggle-btn {
+background-color: #1244f7;
+}
+.toggle-button input:checked + .toggle-btn:before {
+-webkit-transform: translateX(28px);
+-ms-transform: translateX(28px);
+transform: translateX(28px);
+-moz-transform: translateX(28px);
+-o-transform: translateX(28px);
+}
+.toggle-btn.circle {
+border-radius: 33px;
+-webkit-border-radius: 33px;
+-moz-border-radius: 33px;
+-ms-border-radius: 33px;
+-o-border-radius: 33px;
+}
+.toggle-btn.circle:before {
+border-radius: 51%;
+-webkit-border-radius: 51%;
+-moz-border-radius: 51%;
+-ms-border-radius: 51%;
+-o-border-radius: 51%;
+}

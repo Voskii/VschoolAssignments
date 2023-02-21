@@ -2,12 +2,21 @@ import React, { useState, useEffect, useContext} from "react"
 import { useNavigate } from 'react-router-dom';
 import { PokeContext } from './Context'
 import bag from '../images/bag.png'
+import nullImg from '../images/null.png'
 
 export default function Battle() {
     const {pokeData, pList, fighter1, fighter2, cherryPick, fight, inventory} = useContext(PokeContext)
     const navigate = useNavigate()
     console.log(fighter1, fighter2)
-    
+    const notAnotherImgBckup = () => {
+        if(fighter1.img){
+            return fighter1.img
+        } else if(fighter1.imgB){
+            return fighter1.imgB
+        } else {
+            return nullImg
+        }
+    }
     
     return (
         <div>
@@ -22,14 +31,14 @@ export default function Battle() {
                         fighter1.img
                         :
                         fighter1.imgB}  
-                    className={fighter1.img?'poke1':'poke11'} alt=''/>  
+                        className={fighter1.img?'poke1':'poke11'} alt='' />  
                     <h2 className="pokeTitle">HP:</h2>
                     <h2 className="pokeInfo">{fighter1.hp}</h2>
                     <h2 className="pokeTitle">Type:</h2>
                         {fighter1 && fighter1.types 
                         ? 
                         fighter1.types.map(type => (
-                            <><h2 className="pokeInfo">{type.type.name}</h2></>
+                            <><h2 className="pokeInfo" >{type.type.name}</h2></>
                             ))
                             :
                             ''
@@ -38,7 +47,7 @@ export default function Battle() {
                         {fighter1 && fighter1.attacks
                         ?
                         fighter1.attacks.map(attack => (
-                            <><h2 className="pokeInfo">{attack.ability.name}</h2></>
+                            <><h2 className="pokeInfo" key={''}>{attack.ability.name}</h2></>
                             ))
                             :
                             ''
@@ -68,7 +77,7 @@ export default function Battle() {
                         {fighter2 && fighter2.attacks
                         ?
                         fighter2.attacks.map(attack => (
-                            <><h2 className="pokeInfo">{attack.ability.name}</h2></>
+                            <><h2 className="pokeInfo" key={''}>{attack.ability.name}</h2></>
                             ))
                             :
                             ''
@@ -92,7 +101,7 @@ export default function Battle() {
                 {inventory
                 ?
                 inventory.map(poke => (
-                    <li>{poke.name}</li>
+                    <li key={poke.id}>{poke.name}</li>
                 ))
                 :
                 ""

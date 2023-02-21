@@ -32,7 +32,7 @@ function PokeProvider(props) {
     height: "",
     weight: ""
   })
-  const [desc, setDesc] = useState([])
+  
   const [inventory, setInventory] = useState([])
 
   const pList = () => {
@@ -136,7 +136,8 @@ function PokeProvider(props) {
               height: fighter1.height,
               weight: fighter1.weight,
               fighter: fighter1.fighter,
-              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text,
+              speciesB: 'we seem to not have a lot of accurate information about this Pokemon at this time, but we are sure it is really cool!'
             }
           ])))
           .catch(error => console.log(error))
@@ -177,7 +178,8 @@ function PokeProvider(props) {
               height: fighter2.height,
               weight: fighter2.weight,
               fighter: fighter2.fighter,
-              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text
+              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text,
+              speciesB: 'we seem to not have a lot of accurate information about this Pokemon at this time, but we are sure it is really cool!'
             }
           ])))
           .catch(error => console.log(error))
@@ -234,7 +236,7 @@ function PokeProvider(props) {
 //           // .catch(error => console.log(error))
 //           }
   
-  console.log(`state:`, pokeData, inventory, desc)
+  console.log(`state:`, pokeData, inventory)
 
     return (
         <PokeContext.Provider value={{

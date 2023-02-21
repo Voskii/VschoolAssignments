@@ -21,19 +21,15 @@
 }
 
 .cardImgB{
-    
     border: solid #FFD700;
     width: 90%;
     height: 90%;
-    
 }
 
 .cardImgB2{
-    
     border: solid #FFD700;
     width: 90%;
     height: 90%;
-    
 }
 
 .cardImgBg{
@@ -78,4 +74,14 @@ h6{
     justify-content: space-between;
     border-top: #FFD700 solid 1px;
     padding: 5px;
+}
+
+.editInputs{
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: #ffae00;
+    border: solid 3px #FFD700;
+    border-radius: 3px;
+    color: black;
+    font-family: 'Pokemon solid';
 }

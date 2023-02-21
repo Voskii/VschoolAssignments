@@ -44,8 +44,8 @@ export default function App(props) {
           <Route path ="/pokedex" element={<Pokedexx />} />
         </Routes>
       </div>
-      <footer>
-        GOOD LUCK
+      <footer style={{color: '#FFD700'}}>
+        HAVE FUN
       </footer>
     </Router>
   );

@@ -1,6 +1,16 @@
-.steel {
+
+.bug {
     
-    background-image: url('./images/steel.png');
+    background-image: url('./images/bug.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 50px;
+    height: 20px;
+}
+
+.dark {
+    
+    background-image: url('./images/dark.png');
     background-repeat: no-repeat;
     background-size: auto;
     width: 50px;
@@ -97,7 +107,7 @@
     height: 20px;
 }
 
-.idk {
+.unknown {
     
     background-image: url('./images/idk.png');
     background-repeat: no-repeat;
@@ -141,6 +151,26 @@
     width: 50px;
     height: 20px;
 }
+
+.shadow {
+    
+    background-image: url('./images/shadow.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 50px;
+    height: 20px;
+}
+
+
+.steel {
+    
+    background-image: url('./images/steel.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 50px;
+    height: 20px;
+}
+
 
 .water {
     

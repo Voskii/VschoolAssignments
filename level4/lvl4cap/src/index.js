@@ -4,6 +4,7 @@ import './style.css';
 import './dd.css';
 import './card.css';
 import './type.css';
+import './toggle.css';
 import App from './App';
 import { PokeProvider } from './components/Context';
 
