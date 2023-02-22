@@ -34,6 +34,7 @@ function PokeProvider(props) {
   })
   
   const [inventory, setInventory] = useState([])
+  const [bankInv, setBankInv] = useState('')
 
   const pList = () => {
       console.log(`PLIST HAS BEEN CALLED`)
@@ -245,9 +246,11 @@ function PokeProvider(props) {
             cherryPick,
             fighter1,
             fighter2,
-            
             fight,
-            inventory
+            inventory,
+            setInventory,
+            bankInv,
+            setBankInv
         }}>
             {props.children}
         </PokeContext.Provider>
