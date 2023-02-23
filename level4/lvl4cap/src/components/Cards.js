@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef} from "react"
 import { PokeContext } from './Context'
 import { useNavigate } from 'react-router-dom';
+import Carousel from "./Carousel";
 import Switch from "react-switch";
 import bag from '../images/bag.png'
 import poke from '../images/pokeball.png'
@@ -87,6 +88,7 @@ export default function Cards() {
         setChosen(inventory[Math.floor(Math.random() * inventory.length)])
     }
         console.log(`inside bankit func:`, inventory, bankInv)
+
     return (
         <div>
             <div className="app">
@@ -321,13 +323,13 @@ export default function Cards() {
                 ?
                 <div className="bank">
                     <img src={bankImg}  />
-                    {/* <Carousel>
-                        <div>
-                            {bankInv.map(index => {
-                                <>{index.name}</>
-                            })}
-                        </div>
-                    </Carousel> */}
+                    {bankInv
+                    ?
+                    <Carousel bank={bankInv} />
+                    :
+                    ''
+                    }
+                    
                 </div>
                 :
                 ''}
