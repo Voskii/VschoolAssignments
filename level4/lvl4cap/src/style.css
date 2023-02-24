@@ -4,7 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
-  color: rgb(179, 179, 179);
+  color: #FFD700;
 }
 
 .app{
@@ -162,12 +162,6 @@ footer {
   padding: 40px;
   font-size: 1.5rem;
   text-align: center;
-}
-
-.youPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .react-switch {

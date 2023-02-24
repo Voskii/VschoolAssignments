@@ -6,6 +6,7 @@ import Switch from "react-switch";
 import bag from '../images/bag.png'
 import poke from '../images/pokeball.png'
 import bankImg from '../images/pokebank.png'
+import { set } from "mongoose";
 
 
 
@@ -26,7 +27,7 @@ export default function Cards() {
         const userSelect = e.target.innerText
         setChosen(inventory.find(index => index.name === userSelect)) 
         console.log(`chosen (inside pop func):`, chosen)
-        
+        setShowCard(true)
     }
     console.log(`chosen(outside):`, chosen)
 
@@ -62,6 +63,7 @@ export default function Cards() {
 
     const bankIt = (banked) =>{
         console.log(`BANK IT CLICK FUNC:`, banked)
+        setShowCard(!showCard)
         setBankInv(prev => ([
             ...prev,
             {
@@ -93,13 +95,18 @@ export default function Cards() {
         <div>
             <div className="app">
                 <div className='menu-container' ref={menuRef}>
-                    <div className='menu-trigger' onClick={()=>{setOpen(!open); setShowCard(!showCard)}}>
+                    <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
                         <img src={bag}></img>
                     </div>
 
                     <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
                         <ul>
-                            {inventory.map((item, index) => <><li onClick={(e) => {popPoke(e)}} className='dropdownItem' key={index}>{item.name}</li></>)}
+                            {open
+                            ?
+                            inventory.map((item, index) => <><li onClick={(e) => {popPoke(e)}} className='dropdownItem' key={index}>{item.name}</li></>)
+                            :
+                            ''
+                            }
                         </ul>
                     </div>
                 </div>
@@ -314,18 +321,18 @@ export default function Cards() {
                         </div>
                     </>
                 :
-                'Click Inventory!'
+                ''
                 }
                 </div>
             </div>
             <div >
                 {bankInv
                 ?
-                <div className="bank">
+                <div className="bank tform">
                     <img src={bankImg}  />
                     {bankInv
                     ?
-                    <Carousel bank={bankInv} />
+                    <Carousel bank={bankInv} num={bankInv.length}/>
                     :
                     ''
                     }

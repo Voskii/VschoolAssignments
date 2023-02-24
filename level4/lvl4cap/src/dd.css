@@ -56,6 +56,7 @@ opacity: 1;
 visibility: visible;
 transform: translateY(0);
 transition: var(--speed) ease;
+height: fit-content;
 }
 
 .dropdown-menu.inactive {
@@ -90,7 +91,7 @@ text-align: center;
 }
 
 .dropdown-menu ul li {
-padding: 10px  0;
+
 border-top: 1px solid #FFD700;
 cursor: pointer;
 }
