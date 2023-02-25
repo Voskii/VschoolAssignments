@@ -1,0 +1,105 @@
+ul li::marker {
+    content: "🧡 ";
+}
+
+.pd-grid-container{
+    font-family: 'Pokemon GB';
+}
+
+.box1{
+    display: flex;
+    flex-direction: column;
+    color: aqua;
+    border: 3px solid #d400ff;
+    height: 249px;
+    width: 340px;
+    border-bottom: transparent;
+}
+
+.time{
+    display: flex;
+    justify-content: space-around;
+}
+.info-container{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.info-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    column-gap: 10px;
+}
+
+.stat1{
+    grid-column: 1 / 3;
+    grid-row: 1;
+    
+}
+
+.stat2{
+    grid-column: 2 / 4;
+    grid-row: 1;
+}
+
+.stat3{
+    grid-column: 3 / 5;
+    grid-row: 1;
+}
+
+.stat4{
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.stat5{
+    grid-column: 3 / 5;
+    grid-row: 2;
+}
+
+.box2{
+    display: flex;
+    flex-direction: column;
+    color: aqua;
+    border: 3px solid #d400ff;
+    border-top: transparent;
+    height: 249px;
+    width: 340px;
+    align-items: center;
+}
+
+.batt-sub{
+    display:flex;
+    align-items: center;
+    align-self: center;
+}
+
+.sub-butt {
+    width:fit-content;
+    height: 30px;
+    font-family: 'Pokemon GB';
+}
+
+.keypad-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    
+}
+
+.key {
+    background-color: white; 
+    border: solid  black;
+    height: 25px;
+    width: 40px;
+    padding: 5px;
+}
+
+.tform {
+    transform: scale(.5);
+}

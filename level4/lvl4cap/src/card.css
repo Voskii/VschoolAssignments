@@ -8,6 +8,42 @@
     background-color: #ffae00;
 }
 
+/* .card-container::before {
+    content: '';
+    height: 20px;
+    width: 20px;
+    background: var(--secondary-bg);
+    
+} */
+
+/* .card-container.active {
+    font-family: 'Pokemon solid';
+    color: black;
+    border: solid 10px #FFD700;
+    border-radius: 2%;
+    width: 300px;
+    height: fit-content;
+    background-color: #ffae00;
+    opacity: 1;
+visibility: visible;
+transform: translateY(0);
+transition: var(--speed) ease;
+} */
+
+/* .card-container.inactive {
+    font-family: 'Pokemon solid';
+    color: black;
+    border: solid 10px #FFD700;
+    border-radius: 2%;
+    width: 300px;
+    height: fit-content;
+    background-color: #ffae00;
+    opacity: 0;
+visibility: hidden;
+transform: translateY(-20px);
+transition: var(--speed) ease;
+} */
+
 .nameHp{
     display: flex;
     justify-content: space-between;

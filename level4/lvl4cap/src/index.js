@@ -5,8 +5,10 @@ import './dd.css';
 import './card.css';
 import './type.css';
 import './toggle.css';
+import'./pokedex.css';
 import App from './App';
 import { PokeProvider } from './components/Context';
+
 
 
 

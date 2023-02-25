@@ -13,7 +13,6 @@ import { set } from "mongoose";
 export default function Cards() {
     let menuRef = useRef();
     const {pList, inventory, setInventory, bankInv, setBankInv} = useContext(PokeContext)
-    const navigate = useNavigate()
     const [open, setOpen] = useState(false)
     const [chosen, setChosen] = useState([])
     const [showCard, setShowCard] = useState(false)
@@ -118,7 +117,7 @@ export default function Cards() {
                 {showCard && checked
                 ?   
                     <>
-                        <div className="card-container">
+                        <div className={`card-container ${showCard? 'active' : 'inactive'}`}>
                             <div className="nameHp">
                                 <h3>{editCard.name}</h3>
                                 <img src={poke}/>
