@@ -14,7 +14,7 @@ const Carousel = (props) => {
     className="carouselcontainer"
     visibleSlides={2}
     isPlaying={true}
-    isIntrinsicHeight={true}
+    
     infinite={true}
     interval={2000}
     >

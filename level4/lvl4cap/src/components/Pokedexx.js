@@ -3,6 +3,8 @@ import { PokeContext } from './Context'
 import { useNavigate } from 'react-router-dom';
 import Carousel from "./Carousel";
 import Switch from "react-switch";
+import poke from '../images/pokeball.png'
+import pika from '../images/pikachu.png'
 
 export default function Pokedex() {
     
@@ -40,11 +42,32 @@ export default function Pokedex() {
                 </div>
                 <input style={{height: '50px', width: '220px', alignSelf:"center", fontFamily: "Pokemon GB"}} placeholder='Description'></input>
             </div>
-            <div>
-                Box 3
+            <div className="box3">
+                <div>
+                    <div className="evo-container">
+                        <div>
+                            <h6>fish</h6>
+                            <img src={poke}/>
+                        </div>
+                        <div>
+                            <h6>fisher</h6>
+                            <img src={poke}/>
+                        </div>
+                        <div>
+                            <h6>fisherest</h6>
+                            <img src={poke}/>
+                        </div>
+                    </div>
+                    <div>
+                        Types
+                    </div>
+                </div>
             </div>
-            <div>
-                Box 4
+            <div className="box4">
+                <div>
+                    
+                    <img src={pika} style={{height: "60%", width: '80%'}}/>
+                </div>
             </div>
         </div>
     )
