@@ -116,6 +116,7 @@ nav a:hover {
   align-self: center;
   height: 100%;
   width: 100%;
+  /* setting to set px would help */
 }
 
 .poke11 {

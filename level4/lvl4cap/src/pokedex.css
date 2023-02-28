@@ -14,6 +14,7 @@ ul li::marker {
 .box1{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     border: 3px solid #d400ff;
     height: 349px;
     border-bottom: transparent;
@@ -22,7 +23,31 @@ ul li::marker {
 .time{
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
+
+.who-dat-input {
+    height: 200px;
+    width: 280px; 
+    align-self: center;
+    font-family: "Pokemon GB";
+    border: 3px solid #d400ff;
+}
+
+.who-dat-img {
+    height: 200px;
+    width: 280px;
+    border: 3px solid #d400ff;
+    align-self: center;
+}
+
+.who-dat-imgg {
+    height: 200px;
+    width: 280px;
+    border: 3px solid #d400ff;
+    align-self: center;
+}
+
 .info-container{
     margin: 0;
     display: flex;
