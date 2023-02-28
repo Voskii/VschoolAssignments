@@ -8,13 +8,22 @@ import pika from '../images/pikachu.png'
 
 export default function Pokedex() {
     
+    var [date,setDate] = useState(new Date());
+    
+    useEffect(() => {
+        var timer = setInterval(()=>setDate(new Date()), 1000 )
+        return function cleanup() {
+            clearInterval(timer)
+        }
+    
+    });
     
     return (
         <div className="pd-grid-container">
             <div className="box1">
                 <div className="time">
-                    <div>Feb 24th</div>
-                    <div>6pm</div>
+                    <div>{date.toLocaleDateString()}</div>
+                    <div>{date.toLocaleTimeString()}</div>
                 </div>
                 <input style={{height: '200px', width: '220px', alignSelf:"center", fontFamily: "Pokemon GB"}} placeholder='...Search'></input>
                 <div className="info-container">

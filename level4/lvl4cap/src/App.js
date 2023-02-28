@@ -16,7 +16,6 @@ export default function App(props) {
     
     pList()
     
-    
   }, [])
   
   // console.log(pokeData, fighter1, fighter2)
