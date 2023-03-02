@@ -6,12 +6,11 @@ import Switch from "react-switch";
 import poke from '../images/pokeball.png'
 import pika from '../images/pikachu.png'
 import opika from '../images/oface.png'
-import ashe from '../images/ashepchu.png'
 import axios from "axios";
 
 export default function Pokedex() {
     
-    var [date,setDate] = useState(new Date());
+    var [date, setDate] = useState(new Date());
     const [whoDat, setWhoDat] = useState(false)
     const [userPoke, setUserPoke] = useState({})
     const [pokeName, setPokeName] = useState('')
@@ -21,7 +20,7 @@ export default function Pokedex() {
         return function cleanup() {
             clearInterval(timer)
         }
-    
+        
     });
 
     const handleChange = (e) => {
@@ -34,36 +33,54 @@ export default function Pokedex() {
     const pokeReveal = () => {
         
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName.name}`)
-        .then(res => setUserPoke({
-                id: res.data.id,
-                name: res.data.species.name.charAt(0).toUpperCase() + res.data.species.name.slice(1),
-                hp: res.data.stats[0].base_stat,
-                attack: res.data.stats[1].base_stat,
-                def: res.data.stats[2].base_stat,
-                speed: res.data.stats[5].base_stat,
-                img: res.data.sprites.other.home.front_default,
-                imgB: res.data.sprites.front_default,
-                types: res.data.types,
-                attacks: res.data.abilities,
-                species: res.data.species.url,
-                height: res.data.height,
-                weight: res.data.weight
-        }))
-        .catch(error => console.log(error))
-        
-        
+            .then(res => {
+                const speciesUrl = res.data.species.url
+                setUserPoke({
+                    id: res.data.id,
+                    name: res.data.species.name.charAt(0).toUpperCase() + res.data.species.name.slice(1),
+                    hp: res.data.stats[0].base_stat,
+                    attack: res.data.stats[1].base_stat,
+                    def: res.data.stats[2].base_stat,
+                    speed: res.data.stats[5].base_stat,
+                    img: res.data.sprites.other.home.front_default,
+                    imgB: res.data.sprites.front_default,
+                    types: res.data.types,
+                    attacks: res.data.abilities,
+                    species: res.data.species.url,
+                    height: res.data.height,
+                    weight: res.data.weight,
+                    evos: ''
+                })
+                axios.get(speciesUrl)
+                    .then(res => {
+                        const evo = res.data.evolution_chain.url
+                        console.log(`species get call info:`, res.data, evo)
+                        setUserPoke(prev => ({
+                            ...prev, 
+                            species: res.data.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text)
+                        }))
+                        axios.get(evo)
+                            .then(res => {
+                                const theChain = res.data.chain
+                                console.log(`evo call:`, res.data.chain.evolves_to[0].evolves_to[0].species.name)
+                                setUserPoke(prev => ({
+                                    ...prev, 
+                                    evos: res.data.chain
+                                }))
+                                console.log(theChain)
+                            })
+                    })
+                })
+            .catch(error => console.log(error))
+
         console.log(`inside poke Reveal:`, pokeName, userPoke)
         setWhoDat(!whoDat)
         setPokeName({name: ''})
-        
     }
 
     const flavor = () => {
-        axios.get(userPoke.species)
-        .then(res => console.log(`flavor text grab:`, res.data))
-        .catch(error => console.log(error))
+        console.log(`H6 STATE CALL:`, userPoke.evos.species.name)
     }
-    
     
     return (
         <div className="pd-grid-container">
@@ -109,8 +126,6 @@ export default function Pokedex() {
                         <h6 className="stat5">Weight: </h6>
                     </div>
                 </div>
-                    
-                    
                 }
             
             <div className="box2">
@@ -141,17 +156,17 @@ export default function Pokedex() {
                 <div>
                     <div className="evo-container">
                         <div>
-                            <h6>fish</h6>
+                            <h6>{flavor}</h6>
+                            <img src={poke}/>
+                        </div>
+                        {/* <div>
+                            <h6>{userPoke.evos.evolves_to[0].species.name}</h6>
                             <img src={poke}/>
                         </div>
                         <div>
-                            <h6>fisher</h6>
+                            <h6>{userPoke.evos.evolves_to[0].evolves_to[0].species.name}</h6>
                             <img src={poke}/>
-                        </div>
-                        <div>
-                            <h6>fisherest</h6>
-                            <img src={poke}/>
-                        </div>
+                        </div> */}
                     </div>
                     <div>
                         Types map
@@ -178,3 +193,5 @@ export default function Pokedex() {
         </div>
     )
 }
+
+// userPoke.chain.evolves_to.evolves_to.species.name
