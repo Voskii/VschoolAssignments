@@ -49,7 +49,10 @@ export default function Pokedex() {
                     species: res.data.species.url,
                     height: res.data.height,
                     weight: res.data.weight,
-                    evos: ''
+                    evos: '',
+                    pk1Img: '',
+                    pk2Img: '',
+                    pk3Img: ''
                 })
                 axios.get(speciesUrl)
                     .then(res => {
@@ -61,25 +64,61 @@ export default function Pokedex() {
                         }))
                         axios.get(evo)
                             .then(res => {
-                                const theChain = res.data.chain
-                                console.log(`evo call:`, res.data.chain.evolves_to[0].evolves_to[0].species.name)
+                                let pk1Url;
+                                let pk2Url;
+                                let pk3Url;
+                                if(res.data.chain.species.name){
+                                    pk1Url = `https://pokeapi.co/api/v2/pokemon/${res.data.chain.species.name}`;
+                                } else {
+                                    pk1Url = null
+                                }
+
+                                if(res.data.chain.evolves_to[0].species.name){
+                                    pk2Url = `https://pokeapi.co/api/v2/pokemon/${res.data.chain.evolves_to[0].species.name}`
+                                } else {
+                                    pk2Url = null
+                                }
+
+                                if(res.data.chain.evolves_to[0].evolves_to[0].species.name){
+                                    pk3Url = `https://pokeapi.co/api/v2/pokemon/${res.data.chain.evolves_to[0].evolves_to[0].species.name}`
+                                } else {
+                                    pk3Url = null
+                                }
+
+                                let endpoints = [pk1Url, pk2Url, pk3Url];
+                                console.log(`evo call:`, res.data.chain.evolves_to[0].evolves_to[0].species.url)
                                 setUserPoke(prev => ({
                                     ...prev, 
                                     evos: res.data.chain
                                 }))
-                                console.log(theChain)
+                                axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
+                                    (data) => {
+                                        console.log(`inside axios.all map`, data)
+                                        setPokeName({name: ''})
+                                        setWhoDat(!whoDat)
+                                        setUserPoke(prev => ({
+                                            ...prev,
+                                            pk1Img: data[0].data.sprites.front_default,
+                                            pk2Img: data[1].data.sprites.front_default? data[1].data.sprites.front_default : '',
+                                            pk3Img: data[2].data.sprites.front_default? data[2].data.sprites.front_default : ''
+                                        }))
+                                        
+                                    },);
+
                             })
                     })
                 })
             .catch(error => console.log(error))
 
         console.log(`inside poke Reveal:`, pokeName, userPoke)
-        setWhoDat(!whoDat)
-        setPokeName({name: ''})
+        
+        
+        
     }
 
     const flavor = () => {
-        console.log(`H6 STATE CALL:`, userPoke.evos.species.name)
+        console.log("Flavor function called")
+        console.log(`H6 STATE CALL:`, userPoke?.evos?.species?.name)
     }
     
     return (
@@ -155,18 +194,33 @@ export default function Pokedex() {
             <div className="box3">
                 <div>
                     <div className="evo-container">
-                        <div>
-                            <h6>{flavor}</h6>
-                            <img src={poke}/>
+                        <div className="evoPoke">
+                            <h6>{userPoke.evos.species.name? userPoke.evos.species.name : 'No Data'}</h6>
+                            <img src={userPoke.pk1Img
+                                ?
+                                userPoke.pk1Img
+                                :
+                                ''
+                                } className='evo1-img'/>
                         </div>
-                        {/* <div>
-                            <h6>{userPoke.evos.evolves_to[0].species.name}</h6>
-                            <img src={poke}/>
+                        <div className="evoPoke">
+                            <h6>{userPoke.evos.evolves_to[0].species.name? userPoke.evos.evolves_to[0].species.name : 'No Data'}</h6>
+                            <img src={userPoke.pk2Img
+                                ?
+                                userPoke.pk2Img
+                                :
+                                ''
+                                } className='evo2-img'/>
                         </div>
-                        <div>
-                            <h6>{userPoke.evos.evolves_to[0].evolves_to[0].species.name}</h6>
-                            <img src={poke}/>
-                        </div> */}
+                        <div className="evoPoke">
+                            <h6>{userPoke.evos.evolves_to[0].evolves_to[0].species.name? userPoke.evos.evolves_to[0].evolves_to[0].species.name : 'No Data'}</h6>
+                            <img src={userPoke.pk3Img
+                                ?
+                                userPoke.pk3Img
+                                :
+                                ''
+                                } className='evo3-img'/>
+                        </div>
                     </div>
                     <div>
                         Types map

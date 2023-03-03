@@ -35,6 +35,9 @@ ul li::marker {
 }
 
 .who-dat-img {
+    background-image: url('./images/nightbkgrnd.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 200px;
     width: 280px;
     border: 3px solid #d400ff;
@@ -42,6 +45,9 @@ ul li::marker {
 }
 
 .who-dat-imgg {
+    background-image: url('./images/nightbkgrnd.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 200px;
     width: 280px;
     border: 3px solid #d400ff;
@@ -138,6 +144,7 @@ ul li::marker {
     flex-direction: column;
     border: 3px solid #d400ff;
     height: 349px;
+    justify-content: center;
     align-items: center;
     border-left: transparent;
 }
@@ -145,9 +152,18 @@ ul li::marker {
 .evo-container{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .box4{
     grid-row: 2/2 ;
     grid-column: 2/2
+}
+
+.evoPoke {
+    padding: 20px;
+}
+
+.evo1-img{
+
 }
