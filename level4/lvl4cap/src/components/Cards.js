@@ -87,8 +87,9 @@ export default function Cards() {
             return [...prev.filter(item => item.id !== banked)]
         })
         setChosen(inventory[Math.floor(Math.random() * inventory.length)])
+        setOpen(!open)
     }
-        console.log(`inside bankit func:`, inventory, bankInv)
+        console.log(inventory, bankInv)
 
     return (
         <div>
@@ -149,7 +150,7 @@ export default function Cards() {
                                 <h6>Height: {editCard.height}</h6>
                                 <h6>Weight: {editCard.weight}</h6>
                             </div>
-                            <h6 className="desc">{editCard.species}</h6>
+                            <h6 className="desc">{editCard.species[0]}</h6>
                             <div className="attackMe">
                                 <h6>Known Attacks:</h6>
                                 <div>
@@ -218,7 +219,7 @@ export default function Cards() {
                                         type='text' 
                                         placeholder="Description"
                                         name="species"
-                                        value={editCard.species}
+                                        value={editCard.species[0]}
                                         onChange={handleEdits}
                                     />
                                     <input className='editInputs' type='text' placeholder="Style"/>
@@ -264,7 +265,7 @@ export default function Cards() {
                                 <h6>Height: {chosen.height}</h6>
                                 <h6>Weight: {chosen.weight}</h6>
                             </div>
-                            <h6 className="desc">{chosen.species}</h6>
+                            <h6 className="desc">{chosen.species[0]}</h6>
                             <div className="attackMe">
                                 <h6>Known Attacks:</h6>
                                 <div>

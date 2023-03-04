@@ -28,7 +28,7 @@ function PokeProvider(props) {
     types: [],
     attacks: [],
     stats: [],
-    species: "",
+    species: [],
     height: "",
     weight: ""
   })
@@ -137,7 +137,7 @@ function PokeProvider(props) {
               height: fighter1.height,
               weight: fighter1.weight,
               fighter: fighter1.fighter,
-              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text,
+              species: res.data.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text),
               speciesB: 'we seem to not have a lot of accurate information about this Pokemon at this time, but we are sure it is really cool!'
             }
           ])))
@@ -179,7 +179,7 @@ function PokeProvider(props) {
               height: fighter2.height,
               weight: fighter2.weight,
               fighter: fighter2.fighter,
-              species: res.data.flavor_text_entries.find(index => index.language.name === 'en').flavor_text,
+              species: res.data.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text),
               speciesB: 'we seem to not have a lot of accurate information about this Pokemon at this time, but we are sure it is really cool!'
             }
           ])))
