@@ -46,7 +46,7 @@ export default function Cards() {
             height: chosen.height,
             weight: chosen.weight,
             fighter: chosen.fighter,
-            species: chosen.species,
+            species: chosen.species[0],
             speciesB: chosen.speciesB
         })
     };
@@ -150,7 +150,7 @@ export default function Cards() {
                                 <h6>Height: {editCard.height}</h6>
                                 <h6>Weight: {editCard.weight}</h6>
                             </div>
-                            <h6 className="desc">{editCard.species[0]}</h6>
+                            <h6 className="desc">{editCard.species}</h6>
                             <div className="attackMe">
                                 <h6>Known Attacks:</h6>
                                 <div>
@@ -219,7 +219,7 @@ export default function Cards() {
                                         type='text' 
                                         placeholder="Description"
                                         name="species"
-                                        value={editCard.species[0]}
+                                        value={editCard.species}
                                         onChange={handleEdits}
                                     />
                                     <input className='editInputs' type='text' placeholder="Style"/>

@@ -52,7 +52,7 @@ const Carousel = (props) => {
             <h6>Height: {data.height}</h6>
             <h6>Weight: {data.weight}</h6>
         </div>
-        <h6 className="desc">{data.species[0]}</h6>
+        <h6 className="desc">{data.species}</h6>
         <div className="attackMe">
             <h6>Known Attacks:</h6>
             <div>
