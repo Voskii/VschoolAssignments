@@ -5,6 +5,7 @@ import BatteryGauge from 'react-battery-gauge'
 import pika from '../images/pikachu.png'
 import opika from '../images/oface.png'
 import axios from "axios";
+import MediaQuery from 'react-responsive'
 
 export default function Pokedex() {
     
@@ -231,13 +232,16 @@ export default function Pokedex() {
     }
     
     return (
-        <div className="pd-grid-container">
+        <div>
+                <MediaQuery minWidth={895}>
+                <div className="pd-grid-container">
+
                 {whoDat
                 ?
                 <div className="box1"> 
                     <div className="time">
-                        <div>{date.toLocaleDateString()}</div>
-                        <div>{date.toLocaleTimeString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
                     </div>
                     <img src={userPoke.img
                         ?
@@ -256,8 +260,8 @@ export default function Pokedex() {
                 :
                     <div className="box1">
                         <div className="time">
-                        <div>{date.toLocaleDateString()}</div>
-                        <div>{date.toLocaleTimeString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
                     </div>
                     <input 
                     className="who-dat-input" 
@@ -266,7 +270,8 @@ export default function Pokedex() {
                     value={pokeName.name}
                     onKeyDown={(e) => handleKeyPress(e)}
                     name="name"
-                    autocomplete="off">
+                    autocomplete="off"
+                    color="black">
                     </input>
                     <div className="info-container">
                         <h6 className="stat1">Spd: </h6>
@@ -283,9 +288,9 @@ export default function Pokedex() {
                 <BatteryGauge value={count} size={70} animated={true}/>
                         {whoDat
                         ?
-                            <button className="sub-butt" onClick={() => noPoki()}>Who Dat?</button>
+                            <button className="sub-butt" onClick={() => noPoki()}>Find Poke</button>
                         :
-                            <button className="sub-butt" onClick={() => pokeReveal()}>Find Poke</button>
+                            <button className="sub-butt" onClick={() => pokeReveal()}>Who's That?</button>
                         }
                 </div>
                 <div className="keypad-container ">
@@ -299,10 +304,11 @@ export default function Pokedex() {
                     <div className="key" style={{backgroundColor: `${colorCube.box8}`}}></div>
                 </div>
                 {whoDat
-                ?
+                ?   
                     <span className="desc-input" type='text'>{userPoke.species[0]}</span>
                 :
                     <span className="desc-input" value='' type='text'>...description...</span>
+                
                 }
             </div>
             {whoDat
@@ -368,18 +374,322 @@ export default function Pokedex() {
             <div className="box4">
             {whoDat
             ?
-            <div>
-                <img src={pika} style={{height: "60%", width: '80%'}}/>
-            </div>
+                <div>
+                    <img src={pika} style={{height: "60%", width: '80%'}}/>
+                </div>
             :
-            <div>
-                <img src={opika} style={{height: "60%", width: '80%'}}/>
-            </div>
+                <div>
+                    <img src={opika} style={{height: "60%", width: '80%'}}/>
+                </div>
             }
                 
             </div>
+            </div>
+            </MediaQuery>
+            <MediaQuery minWidth={521} maxWidth={894}>
+            <div className="pd-grid-container-med-mq">
+            {whoDat
+                ?
+                <div className="box1"> 
+                    <div className="time">
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
+                    </div>
+                    <img src={userPoke.img
+                        ?
+                        userPoke.img
+                        :
+                        userPoke.imgB}  
+                        className={userPoke.img?'who-dat-img':'who-dat-imgg'} alt='' /> 
+                    <div className="info-container">
+                        <h6 className="stat1">Spd:{userPoke.speed}</h6>
+                        <h6 className="stat2">Hp:{userPoke.hp}</h6>
+                        <h6 className="stat3">Atk:{userPoke.attack}</h6>
+                        <h6 className="stat4">Height: {userPoke.height}</h6>
+                        <h6 className="stat5">Weight: {userPoke.weight}</h6>
+                    </div>
+                </div>
+                :
+                    <div className="box1">
+                        <div className="time">
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
+                    </div>
+                    <input 
+                    className="who-dat-input" 
+                    placeholder='...Search' 
+                    onChange={handleChange}
+                    value={pokeName.name}
+                    onKeyDown={(e) => handleKeyPress(e)}
+                    name="name"
+                    autocomplete="off"
+                    color="black">
+                    </input>
+                    <div className="info-container">
+                        <h6 className="stat1">Spd: </h6>
+                        <h6 className="stat2">Hp: </h6>
+                        <h6 className="stat3">Atk: </h6>
+                        <h6 className="stat4">Height: </h6>
+                        <h6 className="stat5">Weight: </h6>
+                    </div>
+                </div>
+                }
+            
+            <div className="box2-med-mq">
+                <div className="batt-sub">
+                <BatteryGauge value={count} size={70} animated={true}/>
+                        {whoDat
+                        ?
+                            <button className="sub-butt" onClick={() => noPoki()}>Find Poke</button>
+                        :
+                            <button className="sub-butt" onClick={() => pokeReveal()}>Who's That?</button>
+                        }
+                </div>
+                <div className="keypad-container ">
+                    <div className="key" style={{backgroundColor: `${colorCube.box1}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box2}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box3}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box4}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box5}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box6}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box7}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box8}`}}></div>
+                </div>
+                {whoDat
+                ?   
+                    <span className="desc-input" type='text'>{userPoke.species[0]}</span>
+                :
+                    <span className="desc-input" value='' type='text'>...description...</span>
+                
+                }
+            </div>
+            {whoDat
+            ?
+            <div className="box3-med-mq">
+                <div>
+                    <div className="evo-container">
+                        <div className="evoPoke">
+                            {userPoke.pk1Img !== ''
+                            ?
+                                <div>
+                                    <h6>{userPoke.evos.species.name}</h6>
+                                    <img src={userPoke.pk1Img} className='evo1-img'/>
+                                </div>
+                            :
+                                <div>
+                                    <h6>No Data</h6>
+                                </div>
+                            }
+                        </div>
+                        <div className="evoPoke">
+                            {userPoke.pk2Img !== ''
+                            ?
+                                <div>
+                                    <h6>{userPoke.evos.evolves_to[0].species.name}</h6>
+                                    <img src={userPoke.pk2Img} className='evo2-img'/>
+                                </div>
+                            :
+                                <div>
+                                    <h6>No Data</h6>
+                                </div>
+                            }
+                        </div>
+                        <div className="evoPoke">
+                            {userPoke.pk3Img !== ''
+                                ?
+                                    <div>
+                                        <h6>{userPoke.evos.evolves_to[0].evolves_to[0].species.name}</h6>
+                                        <img src={userPoke.pk3Img} className='evo3-img'/>
+                                    </div>
+                                :
+                                    <div>
+                                        <h6>No Data</h6>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                    <div className="pDex-infoBanner-types">{whoDat && userPoke.types 
+                        ? 
+                        userPoke.types.map(type => (
+                            <div className={type.type.name}></div>
+                            ))
+                            :
+                            ''
+                        }
+                    </div>
+                </div>
+            </div>
+            :
+            ''
+            }
+            
+            <div className="box4">
+            {whoDat
+            ?
+                <div>
+                    <img src={pika} style={{height: "60%", width: '80%'}}/>
+                </div>
+            :
+                <div>
+                    <img src={opika} style={{height: "60%", width: '80%'}}/>
+                </div>
+            }
+            </div>
+            </div>
+            </MediaQuery>
+            <MediaQuery maxWidth={520} >
+            <div className="pd-grid-container-med-mq shrinkk">
+            {whoDat
+                ?
+                <div className="box1"> 
+                    <div className="time">
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
+                    </div>
+                    <img src={userPoke.img
+                        ?
+                        userPoke.img
+                        :
+                        userPoke.imgB}  
+                        className={userPoke.img?'who-dat-img':'who-dat-imgg'} alt='' /> 
+                    <div className="info-container">
+                        <h6 className="stat1">Spd:{userPoke.speed}</h6>
+                        <h6 className="stat2">Hp:{userPoke.hp}</h6>
+                        <h6 className="stat3">Atk:{userPoke.attack}</h6>
+                        <h6 className="stat4">Height: {userPoke.height}</h6>
+                        <h6 className="stat5">Weight: {userPoke.weight}</h6>
+                    </div>
+                </div>
+                :
+                    <div className="box1">
+                        <div className="time">
+                        <div className="green-bckgrnd">{date.toLocaleDateString()}</div>
+                        <div className="green-bckgrnd">{date.toLocaleTimeString()}</div>
+                    </div>
+                    <input 
+                    className="who-dat-input" 
+                    placeholder='...Search' 
+                    onChange={handleChange}
+                    value={pokeName.name}
+                    onKeyDown={(e) => handleKeyPress(e)}
+                    name="name"
+                    autocomplete="off"
+                    color="black">
+                    </input>
+                    <div className="info-container">
+                        <h6 className="stat1">Spd: </h6>
+                        <h6 className="stat2">Hp: </h6>
+                        <h6 className="stat3">Atk: </h6>
+                        <h6 className="stat4">Height: </h6>
+                        <h6 className="stat5">Weight: </h6>
+                    </div>
+                </div>
+                }
+            
+            <div className="box2-med-mq">
+                <div className="batt-sub">
+                <BatteryGauge value={count} size={70} animated={true}/>
+                        {whoDat
+                        ?
+                            <button className="sub-butt" onClick={() => noPoki()}>Find Poke</button>
+                        :
+                            <button className="sub-butt" onClick={() => pokeReveal()}>Who's That?</button>
+                        }
+                </div>
+                <div className="keypad-container ">
+                    <div className="key" style={{backgroundColor: `${colorCube.box1}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box2}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box3}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box4}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box5}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box6}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box7}`}}></div>
+                    <div className="key" style={{backgroundColor: `${colorCube.box8}`}}></div>
+                </div>
+                {whoDat
+                ?   
+                    <span className="desc-input" type='text'>{userPoke.species[0]}</span>
+                :
+                    <span className="desc-input" value='' type='text'>...description...</span>
+                
+                }
+            </div>
+            {whoDat
+            ?
+            <div className="box3-med-mq">
+                <div>
+                    <div className="evo-container">
+                        <div className="evoPoke">
+                            {userPoke.pk1Img !== ''
+                            ?
+                                <div>
+                                    <h6>{userPoke.evos.species.name}</h6>
+                                    <img src={userPoke.pk1Img} className='evo1-img'/>
+                                </div>
+                            :
+                                <div>
+                                    <h6>No Data</h6>
+                                </div>
+                            }
+                        </div>
+                        <div className="evoPoke">
+                            {userPoke.pk2Img !== ''
+                            ?
+                                <div>
+                                    <h6>{userPoke.evos.evolves_to[0].species.name}</h6>
+                                    <img src={userPoke.pk2Img} className='evo2-img'/>
+                                </div>
+                            :
+                                <div>
+                                    <h6>No Data</h6>
+                                </div>
+                            }
+                        </div>
+                        <div className="evoPoke">
+                            {userPoke.pk3Img !== ''
+                                ?
+                                    <div>
+                                        <h6>{userPoke.evos.evolves_to[0].evolves_to[0].species.name}</h6>
+                                        <img src={userPoke.pk3Img} className='evo3-img'/>
+                                    </div>
+                                :
+                                    <div>
+                                        <h6>No Data</h6>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                    <div className="pDex-infoBanner-types">{whoDat && userPoke.types 
+                        ? 
+                        userPoke.types.map(type => (
+                            <div className={type.type.name}></div>
+                            ))
+                            :
+                            ''
+                        }
+                    </div>
+                </div>
+            </div>
+            :
+            ''
+            }
+            
+            <div className="box4">
+            {whoDat
+            ?
+                <div>
+                    <img src={pika} style={{height: "60%", width: '80%'}}/>
+                </div>
+            :
+                <div>
+                    <img src={opika} style={{height: "60%", width: '80%'}}/>
+                </div>
+            }
+            </div>
+            </div>
+            </MediaQuery>
         </div>
     )
 }
-
+{/* <MediaQuery minWidth={521} maxWidth={884}></MediaQuery> */}
 // userPoke.chain.evolves_to.evolves_to.species.name
