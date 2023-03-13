@@ -19,7 +19,19 @@ bountyRouter.route('/')
         res.send(`MISSION ADD ${newBounty.fname} ${newBounty.lname} SUCCESSFUL BRUV`)
     })
 
+bountyRouter.delete('/:bountyId', (req, res) => {
+        const bountyId = req.params.bountyId
+        const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+        bounties.splice(bountyIndex, 1)
+        res.send('Deleted Bounty /flex')
+    })
 
+bountyRouter.put('/:bountyId', (req, res) => {
+                const bountyId = req.params.bountyId
+                const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+                const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
+                res.send(`${updatedBounty} updated`)
+})
 
 
 module.exports = bountyRouter
