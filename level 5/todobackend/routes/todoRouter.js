@@ -12,6 +12,13 @@ todoRouter.route('/')
         res.send(todos)
     })
 
+    .post((req, res) => {
+    const newTodo = req.body
+    newTodo._id = uuidv4()
+    todos.push(newTodo)
+    res.send(`Added ${newTodo.name} to database`)
+})
+
 // get one
 todoRouter.get('/:todoId', (req, res) =>{
     const todoId = req.params.todoId
@@ -19,14 +26,9 @@ todoRouter.get('/:todoId', (req, res) =>{
     res.send(foundTodo)
 })
 
-todoRouter.post((req, res) => {
-    const newTodo = req.body
-    newTodo._id = uuidv4()
-    todos.push(newTodo)
-    res.send(`Added ${newTodo.name} to database`)
-})
+    
 
-todoRouter.put('/todoId', (req, res) => {
+todoRouter.put('/:todoId', (req, res) => {
     const todoId = req.params.todoId
     const todoIndex = todos.findIndex(todo => todo._id === todoId)
     const updatedTodo = Object.assign(todos[todoIndex], req.body)
