@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Pokemon solid';
+    margin: 0;
+    padding: 0;
+    color:blueviolet;
+    background-color:aqua
+}
+
+h1 {
+    margin: 5px;
+}
+
+p {
+    margin: 5px;
+}
+
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+
+.movie {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+}

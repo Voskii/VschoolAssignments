@@ -12,10 +12,18 @@ const tvshow = [
 
 
 tvRouter.route('/')
+//Get All
     .get((req, res) => {
     res.send(tvshow)
     })
-
+//Get one
+tvRouter.get('/:tvId', (req, res) => {
+        console.log(req)
+        const tvId = req.params.tvId
+        const foundTv = tvshow.find(show => show._id === tvId)
+        res.send(foundTv)
+    })
+//Post One
     .post((req, res) => {
     const newTv = req.body
     newTv._id = uuidv4()
@@ -23,4 +31,4 @@ tvRouter.route('/')
     res.send(`Successfully added ${newTv.title} to the database`)
     })
 
-module.exports = tvRouter
+module.exports = tvRouter 

@@ -1,16 +1,25 @@
 const express = require('express')
 const app = express()
 
-// Middleware (for every request)
+// Middleware (for every request) middleware needs to call next() or send a resoponse (res.send())
 // app.use('/', express.json()) '/' is an optional parameter
 app.use(express.json())
-//Hard coded Data
+//Middleware
 
+app.use('/items', (req, res, next) => {
+    console.log('The items middleware was executed')
+    next()
+})
 
-const fish = [
-    { name: 'Nemo', age: 25 },
-]
+app.use('/items', (req, res, next) => {
+    req.body = {name: 'kyle'}
+    next()
+})
 
+app.get('/items', (req, res, next) => {
+    console.log('Get request recieved')
+    res.send(req.body)
+})
 
         //ROUTES
 //1: Endpoint (mount path) 2: CB function
