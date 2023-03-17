@@ -1,0 +1,48 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Pokemon solid';
+  margin: 0;
+  padding: 0;
+  color:blueviolet;
+  background-color:aqua
+}
+
+h1 {
+  margin: 5px;
+}
+
+p {
+  margin: 5px;
+}
+
+form {
+  
+}
+
+.bounty-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 32px;
+}
+
+.bounty {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+
+.button {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.delete-btn {
+  background-color: firebrick;
+  color: whitesmoke;
+}
+
+.edit-btn {
+  background-color: blueviolet;
+  color: whitesmoke;
+}
