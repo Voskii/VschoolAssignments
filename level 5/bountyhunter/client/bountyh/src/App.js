@@ -5,11 +5,15 @@ import BountyForm from "./components/BountyForm";
 
 export default function App () {
     const [bounties, setBounties] = useState([])
+    const [errors, setErrors] = useState({
+        items: [],
+        errorMessage: ''
+    })
 
     function getBounties(){
         axios.get('/bounty')
             .then(res => setBounties(res.data))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     function addBounty (newBounty){
@@ -17,7 +21,9 @@ export default function App () {
             .then(res => {
                 setBounties(prev => [...prev, res.data])
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setErrors({errorMessage: err.response.data.errMsg})
+            })
     }
 
     function delBounty(bountyId){
@@ -38,11 +44,33 @@ export default function App () {
 
     useEffect(() => {
         getBounties()
+
     }, [])
+
+    function handleFilter(e){
+        if (e.target.value === 'reset'){
+            getBounties()
+        } else {
+            axios.get(`/bounty/search/type?type=${e.target.value}`)
+            .then(res => setBounties(res.data))
+            .catch(err => console.log(err))
+        }
+        
+    }
 
     return (
         <div className="bounty-container">
             <BountyForm submit={addBounty} btnText='Add Bounty'/>
+            <h4>Filter by Type</h4>
+            <select onChange={handleFilter} className='filter-form'>
+                <option value='reset'>- No Filter -</option>
+                <option value='jedi'>Jedi</option>
+                <option value='sith'>Sith</option>
+            </select>
+            {errors.errorMessage ? 
+                <h3 className="delete-btn">{errors.errorMessage}</h3>
+            :
+            ''}
             {bounties.map(bountyy => <Bounty {...bountyy} key={bountyy.fname} delBounty={delBounty} editBounty={editBounty}/>)}
         </div>
     )

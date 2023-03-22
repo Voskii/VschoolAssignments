@@ -46,3 +46,7 @@ form {
   background-color: blueviolet;
   color: whitesmoke;
 }
+
+.filter-form{
+  width: 200px;
+}

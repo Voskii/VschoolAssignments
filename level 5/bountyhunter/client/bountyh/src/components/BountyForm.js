@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function BountyForm(props){
-    const initInputs = { bounty_amount: props.bounty_amount || '', living: props.living || '', fname: props.fname || '', lname: props.lname || '', type: props.type || ''}
+    const initInputs = { price: props.price || '', living: props.living || '', fname: props.fname || '', lname: props.lname || '', type: props.type || ''}
     const [inputs, setInputs] = useState(initInputs)
     const {submit, setEditToggle, editToggle} = props
 
@@ -34,8 +34,8 @@ export default function BountyForm(props){
                 placeholder='Last Name'/>
             <input 
                 type='number'
-                name='bounty_amount'
-                value={inputs.bounty_amount}
+                name='price'
+                value={inputs.price}
                 onChange={handleChange}
                 placeholder='Price'/>
             <input 
