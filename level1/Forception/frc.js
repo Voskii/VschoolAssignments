@@ -18,7 +18,7 @@ function forception (peeps, alpha){
 }
 forception(people, alphabet)
 
-
+//yaya
 // var result = []
 // function forception(people, alphabet){
 // for(var j = 0; j <= alphabet.length; j++){
